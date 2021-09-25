@@ -225,6 +225,11 @@ echo
         * {
             font-family: Tahoma, Arial;
         }
+        body {
+            margin: 0 auto;
+            width: 75%;
+            padding: 50px;
+        }
         td {
             border: 1px solid black;
             padding: 5px;
@@ -232,6 +237,7 @@ echo
         table {
             border-collapse: collapse;
             border: 3px solid black;
+            width: 100%;
         }
         .female {
             background-color: pink;
@@ -241,7 +247,15 @@ echo
             background-color: lightblue;
             border-bottom: 3px solid black;
         }
+        .property {
+            width: 250px;
+        }
+        .color {
+            width:50px;
+        }
     </style>';
+
+echo '<body>';
 
 // output human properties
 $totalAge = 0;
@@ -252,22 +266,24 @@ foreach ($humans as $human1) {
     echo 
         '<h3>Human #'.$i.'</h3>
         <table>
-            <tr><td class="'.($human1->getGender() === 'female' ? 'female' : 'male').'">Name</td><td class="'.($human1->getGender() === 'female' ? 'female' : 'male').'">'.$human1->getName().'</td></tr>
-            <tr><td>Gender</td><td>'.$human1->getGender().'</td></tr>
-            <tr><td>Birthday</td><td>'.$human1->getBirthday().'</td></tr>
-            <tr><td>Age</td><td>'.$human1->getAgeInYears().' years</td></tr>
-            <tr><td>Size</td><td>'.($human1->getSizeInCentimeters() / 100).' meters</td></tr>
-            <tr><td>Weight</td><td>'.$human1->getWeightInKilograms().' kilograms</td></tr>
-            <tr><td>Skills</td><td>'.implode(', ', $human1->getSkills()).'</td></tr>
-            <tr><td>Soft-Skills</td><td>'.implode(', ', $human1->getSoftSkills()).'</td></tr>
-            <tr><td>Body-Mass-Index</td><td>'.$human1->getBodyMassIndex().'</td></tr>
-            <tr><td>Eye-Color</td><td style="background-color:'.$human1->getEyeColor().';"></td></tr>
-            <tr><td>Hair-Color</td><td style="background-color:'.$human1->getHairColor().';"></td></tr>
-            <tr><td>Skin-Color</td><td style="background-color:'.$human1->getSkinColor().';"></td></tr>
+            <tr><td class="property '.($human1->getGender() === 'female' ? 'female' : 'male').'">Name</td><td colspan="2" class="'.($human1->getGender() === 'female' ? 'female' : 'male').'">'.$human1->getName().'</td></tr>
+            <tr><td class="property">Gender</td><td colspan="2">'.$human1->getGender().'</td></tr>
+            <tr><td class="property">Birthday</td><td colspan="2">'.$human1->getBirthday().'</td></tr>
+            <tr><td class="property">Age</td><td colspan="2">'.$human1->getAgeInYears().' years</td></tr>
+            <tr><td class="property">Size</td><td colspan="2">'.($human1->getSizeInCentimeters() / 100).' meters</td></tr>
+            <tr><td class="property">Weight</td><td colspan="2">'.$human1->getWeightInKilograms().' kilograms</td></tr>
+            <tr><td class="property">Skills</td><td colspan="2">'.implode(', ', $human1->getSkills()).'</td></tr>
+            <tr><td class="property">Soft-Skills</td><td colspan="2">'.implode(', ', $human1->getSoftSkills()).'</td></tr>
+            <tr><td class="property">Body-Mass-Index</td><td colspan="2">'.$human1->getBodyMassIndex().'</td></tr>
+            <tr><td class="property">Eye-Color</td><td class="color" style="background-color:'.$human1->getEyeColor().';"></td><td></td></tr>
+            <tr><td class="property">Hair-Color</td><td class="color" style="background-color:'.$human1->getHairColor().';"></td><td></td></tr>
+            <tr><td class="property">Skin-Color</td><td class="color" style="background-color:'.$human1->getSkinColor().';"></td><td></td></tr>
         </table><br/>';
 }
 
 echo "<br/>Avarage Age: ".round($totalAge / count($humans), 2);
+
+echo '</body>';
 
 
 class Human 
