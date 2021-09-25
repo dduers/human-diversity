@@ -363,7 +363,7 @@ class Human
                 $zodiac = $k;
             }
         } 
-        return $zodiac ?: 'Capricorn';
+        return $zodiac ?? 'Capricorn';
     }
 
     private function createRandomBirthday(): string
