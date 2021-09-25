@@ -259,6 +259,7 @@ foreach ($humans as $human1) {
             <tr><td>Size</td><td>'.($human1->getSizeInCentimeters() / 100).' meters</td></tr>
             <tr><td>Weight</td><td>'.$human1->getWeightInKilograms().' kilograms</td></tr>
             <tr><td>Skills</td><td>'.implode(', ', $human1->getSkills()).'</td></tr>
+            <tr><td>Soft-Skills</td><td>'.implode(', ', $human1->getSoftSkills()).'</td></tr>
             <tr><td>Body-Mass-Index</td><td>'.$human1->getBodyMassIndex().'</td></tr>
             <tr><td>Eye-Color</td><td style="background-color:'.$human1->getEyeColor().';"></td></tr>
             <tr><td>Hair-Color</td><td style="background-color:'.$human1->getHairColor().';"></td></tr>
@@ -279,13 +280,45 @@ class Human
     private string $hairColor;
     private string $skinColor;
     private array $skills;
+    private array $softSkills;
 
     private const POSSIBLE_SKILLS = [
-        'cooking',
-        'hacking',
-        'gardening',
-        'parenting',
-        'shopping',
+        'Cooking',
+        'Hacking',
+        'Gardening',
+        'Parenting',
+        'Shopping',
+    ];
+
+    private const POSSIBLE_SOFTSKILLS = [
+        'Confidence',
+        'Cooperation',
+        'Courtesy',
+        'Energy',
+        'Enthusiasm',
+        'Friendliness',
+        'Honesty',
+        'Humorous',
+        'Patience',
+        'Respectability',
+        'Respectfulness',
+        'Listening',
+        'Negotiation',
+        'Nonverbal communication',
+        'Persuasion',
+        'Presentation',
+        'Public speaking',
+        'Reading body language',
+        'Social skills',
+        'Storytelling',
+        'Verbal communication',
+        'Visual communication',
+        'Writing skills',
+        'Dealing with difficult situations',
+        'Empathy',
+        'Influence',
+        'Networking',
+        'Persuasion',
     ];
     
     function __construct(
@@ -294,6 +327,7 @@ class Human
         ?int $sizeCentimeters = NULL, 
         ?int $weightKilograms = NULL, 
         ?array $skills = NULL,
+        ?array $softSkills = NULL,
         ?int $eyeColor = NULL, 
         ?int $hairColor = NULL, 
         ?array $skinColor = NULL
@@ -319,6 +353,11 @@ class Human
             $skills = $this->createRandomSkills();
         }
         $this->skills = $skills;
+
+        if (!$softSkills) {
+            $softSkills = $this->createRandomSoftSkills();
+        }
+        $this->softSkills = $softSkills;
 
         if (!$eyeColor) {
             $eyeColor = $this->createRandomColor();
@@ -346,6 +385,18 @@ class Human
             }
         }
         return $skills;
+    }
+
+    public function createRandomSoftSkills(): array
+    {
+        $softSkills = [];
+        for ($i = 0; $i < rand(2, 5); $i++) {
+            $possibleSoftSkill = self::POSSIBLE_SOFTSKILLS[rand(0, count(self::POSSIBLE_SOFTSKILLS) - 1)];
+            if (!in_array($possibleSoftSkill, $softSkills)) {
+                $softSkills[] = $possibleSoftSkill;
+            }
+        }
+        return $softSkills;
     }
 
     private function createRandomBirthday(): string
@@ -383,6 +434,11 @@ class Human
     public function getSkills(): array
     {
         return $this->skills;
+    }
+
+    public function getSoftSkills(): array
+    {
+        return $this->softSkills;
     }
 
     public function getName(): string
