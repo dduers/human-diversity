@@ -66,5 +66,12 @@ echo '<a href="/">Go for recreation!</a>';
 
 endif ?>
 
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <hr/>
+    <p>This page exists mainly for humorous, recreational and inspirational purpose!</p>
+    <p><a href="https://www.xsite.ch">XSite Web Development & Design</a></p>
     </body>
 </html>

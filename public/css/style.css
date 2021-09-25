@@ -46,3 +46,6 @@ button {
     font-size: 24px;
     padding:15px;
 }
+hr {
+    border: 1px solid lightgrey;
+}
