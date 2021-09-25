@@ -26,7 +26,7 @@
 
 echo 
     "<p>The characters listed are not actual members and purely fictional, but you might meet people alike.</p>
-    <p>Don't put them in the microwave!</p><br/>";
+    <p>Listen to your stereo, don't put them in the microwave!</p><br/>";
 
 require_once '../config.php';
 
