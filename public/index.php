@@ -70,7 +70,7 @@ foreach ($humans as $human1) {
         </table><br/>';
 }
 
-echo '<a href="/">Go for recreation!</a>';
+echo '<button onclick="javascript:window.location.href=\'/\'";>Go for recreation!</button>';
 
 endif ?>
 
