@@ -11,6 +11,9 @@
     </head>
     <body>
         <h1>Human Diversity</h1>
+        <hr/>
+        <br/>
+        <br/>
 
 <?php if (!isset($_GET['count'])) : ?>
         <form method="GET">
