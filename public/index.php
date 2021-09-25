@@ -489,7 +489,8 @@ class Human
 
 final class Woman extends Human 
 {
-    private int $breastSizeCentimeters;
+    //placeholder :)
+    //private int $breastSizeCentimeters;
 
     public function getGender(): string
     {
@@ -500,7 +501,8 @@ final class Woman extends Human
 
 final class Man extends Human
 {
-    private int $dickSizeCentimeters;
+    //placeholder :)
+    //private int $dickSizeCentimeters;
 
     public function getGender(): string
     {
