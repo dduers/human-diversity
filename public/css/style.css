@@ -1,0 +1,49 @@
+* {
+    font-family: Tahoma, Arial;
+}
+body {
+    margin: 0 auto;
+    width: 75%;
+    padding: 50px;
+}
+td {
+    border: 1px solid black;
+    padding: 5px;
+}
+table {
+    border-collapse: collapse;
+    border: 3px solid black;
+    width: 100%;
+}
+.female {
+    background-color: pink;
+    border-bottom: 3px solid black;
+}
+.male {
+    background-color: lightblue;
+    border-bottom: 3px solid black;
+}
+.property {
+    width: 250px;
+}
+.color {
+    width:50px;
+}
+input {
+    padding:15px;
+    width:50%;
+    font-size:50px;
+}
+label, input {
+    display: block;
+    margin-bottom: 30px;
+}
+label {
+    font-size: 24px;
+    font-weight: bold;
+    
+}
+button {
+    font-size: 24px;
+    padding:15px;
+}
