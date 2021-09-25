@@ -341,6 +341,31 @@ class Human
         return $softSkills;
     }
 
+    public function getZodiac(): string
+    {
+        $dxa = substr($this->birthday->format('Y-m-d'), 5);
+        $uy = 0;
+        foreach([
+            'Aquarius' => 20,
+            'Pisces' => 19,
+            'Aries' => 20,
+            'Taurus' => 20,
+            'Gemini' => 20,
+            'Cancer' => 21,
+            'Leo' => 22,
+            'Virgo' => 23,
+            'Libra' => 23,
+            'Scorpio' => 23,
+            'Sagittarius' => 22,
+            'Capricorn' => 21
+        ] as $k => $v) {
+            if ($dxa > (++$uy < 10 ? '0' : '')."$uy-$v") {
+                $zodiac = $k;
+            }
+        } 
+        return $zodiac ?: 'Capricorn';
+    }
+
     private function createRandomBirthday(): string
     {
         $day = rand(1, 28);

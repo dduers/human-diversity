@@ -49,7 +49,7 @@ foreach ($humans as $human1) {
         <table>
             <tr><td class="property '.($human1->getGender() === 'female' ? 'female' : 'male').'">Name</td><td colspan="2" class="'.($human1->getGender() === 'female' ? 'female' : 'male').'">'.$human1->getName().'</td></tr>
             <tr><td class="property">Gender</td><td colspan="2">'.$human1->getGender().'</td></tr>
-            <tr><td class="property">Birthday</td><td colspan="2">'.$human1->getBirthday().'</td></tr>
+            <tr><td class="property">Birthday</td><td colspan="2">'.$human1->getBirthday().' ('.$human1->getZodiac().')</td></tr>
             <tr><td class="property">Age</td><td colspan="2">'.$human1->getAgeInYears().' years</td></tr>
             <tr><td class="property">Size</td><td colspan="2">'.($human1->getSizeInCentimeters() / 100).' meters</td></tr>
             <tr><td class="property">Weight</td><td colspan="2">'.$human1->getWeightInKilograms().' kilograms</td></tr>
