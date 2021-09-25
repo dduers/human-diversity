@@ -9,16 +9,21 @@
     <body>
 
 <?php if (!isset($_GET['count'])) : ?>
-
-    <form method="GET">
-        <label for="count">How many humans?</label>
-        <input type="number" id="count" name="count" min="2" max="69" required />
-        <button type="submit">Generate</button>
-    </form>
-
+        <form method="GET">
+            <label for="count">How many humans</label>
+            <p>For how many humans are you looking for?</p>
+            <input type="number" id="count" name="count" min="2" max="12" required />
+            <button type="submit">Search</button>
+        </form>
 <?php else :
 
 require_once '../config.php';
+
+if ($_GET['count'] < 2)
+    $_GET['count'] = 2;
+
+if ($_GET['count'] > 12)
+    $_GET['count'] = 12;
 
 // create humans
 $humans = [];
