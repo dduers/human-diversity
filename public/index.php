@@ -10,6 +10,7 @@
         <link rel="stylesheet" type="text/css" href="css/style.css" />
     </head>
     <body>
+        <h1>Human Diversity</h1>
 
 <?php if (!isset($_GET['count'])) : ?>
         <form method="GET">
@@ -19,6 +20,10 @@
             <button type="submit">Search</button>
         </form>
 <?php else :
+
+echo 
+    "<p>The characters listed are not actual members and purely fictional, but you might meet people alike.</p>
+    <p>Don't put them in the microwave!</p><br/>";
 
 require_once '../config.php';
 
