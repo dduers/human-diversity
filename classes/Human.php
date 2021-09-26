@@ -1,8 +1,14 @@
 <?php
 declare(strict_types=1);
 
+/**
+ * this describes a human beeing
+ */
 class Human 
 {
+    /**
+     * properties 
+     */
     private string $name;
     private DateTime $birthday;
     private int $sizeCentimeters;
@@ -13,6 +19,13 @@ class Human
     private array $skills;
     private array $softSkills;
 
+    /**
+     * constants
+     */
+    private const MAX_BODY_SIZE = 250;
+    private const MIN_BODY_SIZE = 50;
+    private const MAX_WEIGHT = 180;
+    private const MIN_WEIGHT = 3;
     private const POSSIBLE_SKILLS = [
         'Cooking',
         'Hacker',
@@ -231,7 +244,6 @@ class Human
         'Web Developer',
         'Writer',        
     ];
-
     private const POSSIBLE_SKIN_COLORS = [
         'aqua',
         'black',
@@ -391,7 +403,6 @@ class Human
         'yellow',
         'yellowgreen',
     ];
-
     private const POSSIBLE_HAIR_COLORS = [
         'aqua',
         'black',
@@ -551,7 +562,6 @@ class Human
         'yellow',
         'yellowgreen',
     ];
-
     private const POSSIBLE_EYE_COLORS = [
         'aqua',
         'black',
@@ -711,7 +721,6 @@ class Human
         'yellow',
         'yellowgreen',
     ];
-
     private const POSSIBLE_SOFTSKILLS = [
         'Confidence',
         'Cooperation',
@@ -743,6 +752,18 @@ class Human
         'Persuasion',
     ];
     
+    /**
+     * human class constructor
+     * @param string $name name
+     * @param string (optional) $birthday YYYY-MM-DD
+     * @param int (optional) $sizeCentimeters 
+     * @param int (optional) $weightKilograms 
+     * @param array (optional) $skills 
+     * @param array (optional) $softSkills 
+     * @param string (optional) $eyeColor 
+     * @param string (optional) $hairColor 
+     * @param string (optional) $skinColor 
+     */
     function __construct(
         string $name, 
         ?string $birthday = NULL, 
@@ -750,9 +771,9 @@ class Human
         ?int $weightKilograms = NULL, 
         ?array $skills = NULL,
         ?array $softSkills = NULL,
-        ?int $eyeColor = NULL, 
-        ?int $hairColor = NULL, 
-        ?array $skinColor = NULL
+        ?string $eyeColor = NULL, 
+        ?string $hairColor = NULL, 
+        ?string $skinColor = NULL
     ) {
         $this->name = $name;
 
@@ -762,12 +783,12 @@ class Human
         $this->birthday = new DateTime($birthday);
 
         if (!$sizeCentimeters) {
-            $sizeCentimeters = $this->createRandomNumber(50, 230);
+            $sizeCentimeters = $this->createRandomNumber(self::MIN_BODY_SIZE, self::MAX_BODY_SIZE);
         }
         $this->sizeCentimeters = $sizeCentimeters;
 
         if (!$weightKilograms) {
-            $weightKilograms = $this->createRandomNumber(3, 130);
+            $weightKilograms = $this->createRandomNumber(self::MIN_WEIGHT, self::MAX_WEIGHT);
         }
         $this->weightKilograms = $weightKilograms;
 
@@ -895,26 +916,114 @@ class Human
      */
     public function getFullBodyImage(): string
     {
+        $bodyMassIndex = $this->getBodyMassIndex();
+        $humanSize = $this->getSizeInCentimeters();
+
+        $humanSizePixels = $humanSize * 2;
+
+        $proportions = round($humanSizePixels / 10); 
+        $headSizePixels = $proportions * 1;
+        $bodySizePixels = $proportions * 4;
+        $legsSizePixels = $proportions * 5;
+        $armsSizePixels = $proportions * 4;
+
         $svg = '
-            <svg height="500" width="500">
+            <svg height="'.$bodySizePixels.'" width="500">
+                
                 <!-- left leg -->
-                <line x1="160" y1="310" x2="200" y2="480" stroke="'.$this->skinColor.'" stroke-width="10" />
+                <line 
+                    x1="160" 
+                    y1="310" 
+                    x2="200" 
+                    y2="480" 
+                    stroke="'.$this->skinColor.'" 
+                    stroke-width="10" 
+                />
+                
                 <!-- right leg -->
-                <line x1="140" y1="310" x2="90" y2="480" stroke="'.$this->skinColor.'" stroke-width="10" /> 
+                <line 
+                    x1="140" 
+                    y1="310" 
+                    x2="90" 
+                    y2="480" 
+                    stroke="'.$this->skinColor.'" 
+                    stroke-width="10" 
+                /> 
+                
                 <!-- right art -->
-                <line x1="280" y1="120" x2="150" y2="250" stroke="'.$this->skinColor.'" stroke-width="10" />
+                <line 
+                    x1="280" 
+                    y1="120" 
+                    x2="150" 
+                    y2="250" 
+                    stroke="'.$this->skinColor.'" 
+                    stroke-width="10" 
+                />
+                
                 <!-- left art -->
-                <line x1="10" y1="120" x2="150" y2="250" stroke="'.$this->skinColor.'" stroke-width="10" />
+                <line 
+                    x1="10" 
+                    y1="120" 
+                    x2="150" 
+                    y2="250" 
+                    stroke="'.$this->skinColor.'" 
+                    stroke-width="10" 
+                />
+                
                 <!-- body -->
-                <ellipse cx="150" cy="200" rx="50" ry="120" stroke="black" stroke-width="1" fill="'.$this->skinColor.'" />
+                <ellipse 
+                    cx="150" 
+                    cy="200" 
+                    rx="50" 
+                    ry="120" 
+                    stroke="black" 
+                    stroke-width="1" 
+                    fill="'.$this->skinColor.'" 
+                />
+
                 <!-- head -->
-                <circle cx="150" cy="50" r="40" stroke="black" stroke-width="1" fill="'.$this->skinColor.'" />
+                <circle 
+                    cx="150" 
+                    cy="50" 
+                    r="40" 
+                    stroke="black" 
+                    stroke-width="1" 
+                    fill="'.$this->skinColor.'" 
+                />
+
                 <!-- left eye -->
-                <ellipse cx="135" cy="35" rx="8" ry="4" stroke="black" stroke-width="1" fill="'.$this->eyeColor.'" />
+                <ellipse 
+                    cx="135" 
+                    cy="35" 
+                    rx="8" 
+                    ry="4" 
+                    stroke="black" 
+                    stroke-width="1" 
+                    fill="'.$this->eyeColor.'" 
+                />
+
                 <!-- right eye -->
-                <ellipse cx="165" cy="35" rx="8" ry="4" stroke="black" stroke-width="1" fill="'.$this->eyeColor.'" />
+                <ellipse 
+                    cx="165" 
+                    cy="35" 
+                    rx="8" 
+                    ry="4" 
+                    stroke="black" 
+                    stroke-width="1" 
+                    fill="'.$this->eyeColor.'" 
+                />
+
                 <!-- mouth -->
-                <ellipse cx="150" cy="63" rx="15" ry="7" stroke="black" stroke-width="1" fill="red" />
+                <ellipse 
+                    cx="150" 
+                    cy="63" 
+                    rx="15" 
+                    ry="7" 
+                    stroke="black" 
+                    stroke-width="1" 
+                    fill="red" 
+                />
+
             </svg>
         ';
 
