@@ -928,14 +928,14 @@ class Human
         $armsSizePixels = $proportions * 4;
 
         $svg = '
-            <svg height="'.$bodySizePixels.'" width="500">
+            <svg height="'.$humanSizePixels.'" width="500">
                 
                 <!-- left leg -->
                 <line 
                     x1="160" 
-                    y1="310" 
-                    x2="200" 
-                    y2="480" 
+                    y1="'.($headSizePixels + $bodySizePixels - $proportions).'" 
+                    x2="'.(160 + $proportions).'" 
+                    y2="'.($headSizePixels + $bodySizePixels + $legsSizePixels).'" 
                     stroke="'.$this->skinColor.'" 
                     stroke-width="10" 
                 />
@@ -943,39 +943,39 @@ class Human
                 <!-- right leg -->
                 <line 
                     x1="140" 
-                    y1="310" 
-                    x2="90" 
-                    y2="480" 
+                    y1="'.($headSizePixels + $bodySizePixels - $proportions).'" 
+                    x2="'.(140 - $proportions).'" 
+                    y2="'.($headSizePixels + $bodySizePixels + $legsSizePixels).'" 
                     stroke="'.$this->skinColor.'" 
                     stroke-width="10" 
                 /> 
                 
-                <!-- right art -->
+                <!-- right arm -->
                 <line 
-                    x1="280" 
-                    y1="120" 
+                    x1="'.(150 + $armsSizePixels).'" 
+                    y1="'.($headSizePixels + $bodySizePixels / 2 - $armsSizePixels).'" 
                     x2="150" 
-                    y2="250" 
+                    y2="'.($headSizePixels + $bodySizePixels / 2).'" 
                     stroke="'.$this->skinColor.'" 
                     stroke-width="10" 
                 />
                 
-                <!-- left art -->
+                <!-- left arm -->
                 <line 
-                    x1="10" 
-                    y1="120" 
+                    x1="'.(150 - $armsSizePixels).'" 
+                    y1="'.($headSizePixels + $bodySizePixels / 2 - $armsSizePixels).'" 
                     x2="150" 
-                    y2="250" 
+                    y2="'.($headSizePixels + $bodySizePixels / 2).'" 
                     stroke="'.$this->skinColor.'" 
-                    stroke-width="10" 
+                    stroke-width="10" d
                 />
                 
                 <!-- body -->
                 <ellipse 
                     cx="150" 
-                    cy="200" 
-                    rx="50" 
-                    ry="120" 
+                    cy="'.($bodySizePixels / 2 + $headSizePixels).'" 
+                    rx="'.round($bodySizePixels / 4).'" 
+                    ry="'.($bodySizePixels / 2).'" 
                     stroke="black" 
                     stroke-width="1" 
                     fill="'.$this->skinColor.'" 
@@ -984,8 +984,8 @@ class Human
                 <!-- head -->
                 <circle 
                     cx="150" 
-                    cy="50" 
-                    r="40" 
+                    cy="'.($headSizePixels / 2).'" 
+                    r="'.($headSizePixels / 2).'" 
                     stroke="black" 
                     stroke-width="1" 
                     fill="'.$this->skinColor.'" 
