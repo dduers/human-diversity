@@ -232,6 +232,486 @@ class Human
         'Writer',        
     ];
 
+    private const POSSIBLE_SKIN_COLORS = [
+        'aqua',
+        'black',
+        'blue',
+        'fuchsia',
+        'gray',
+        'green',
+        'lime',
+        'maroon',
+        'navy',
+        'olive',
+        'purple',
+        'red',
+        'silver',
+        'teal',
+        'white',
+        'yellow',
+        'aliceblue',
+        'antiquewhite',
+        'aqua',
+        'aquamarine',
+        'azure',
+        'beige',
+        'bisque',
+        'black',
+        'blanchedalmond',
+        'blue',
+        'blueviolet',
+        'brown',
+        'burlywood',
+        'cadetblue',
+        'chartreuse',
+        'chocolate',
+        'coral',
+        'cornflowerblue',
+        'cornsilk',
+        'crimson',
+        'cyan',
+        'darkblue',
+        'darkcyan',
+        'darkgoldenrod',
+        'darkgray',
+        'darkgreen',
+        'darkkhaki',
+        'darkmagenta',
+        'darkolivegreen',
+        'darkorange',
+        'darkorchid',
+        'darkred',
+        'darksalmon',
+        'darkseagreen',
+        'darkslateblue',
+        'darkslategray',
+        'darkturquoise',
+        'darkviolet',
+        'deeppink',
+        'deepskyblue',
+        'dimgray',
+        'dodgerblue',
+        'firebrick',
+        'floralwhite',
+        'forestgreen',
+        'fuchsia',
+        'gainsboro',
+        'ghostwhite',
+        'gold',
+        'goldenrod',
+        'gray',
+        'green',
+        'greenyellow',
+        'honeydew',
+        'hotpink',
+        'indianred',
+        'indigo',
+        'ivory',
+        'khaki',
+        'lavender',
+        'lavenderblush',
+        'lawngreen',
+        'lemonchiffon',
+        'lightblue',
+        'lightcoral',
+        'lightcyan',
+        'lightgoldenrodyellow',
+        'lightgreen',
+        'lightgrey',
+        'lightpink',
+        'lightsalmon',
+        'lightseagreen',
+        'lightskyblue',
+        'lightslategray',
+        'lightsteelblue',
+        'lightyellow',
+        'lime',
+        'limegreen',
+        'linen',
+        'magenta',
+        'maroon',
+        'mediumaquamarine',
+        'mediumblue',
+        'mediumorchid',
+        'mediumpurple',
+        'mediumseagreen',
+        'mediumslateblue',
+        'mediumspringgreen',
+        'mediumturquoise',
+        'mediumvioletred',
+        'midnightblue',
+        'mintcream',
+        'mistyrose',
+        'moccasin',
+        'navajowhite',
+        'navy',
+        'navyblue',
+        'oldlace',
+        'olive',
+        'olivedrab',
+        'orange',
+        'orangered',
+        'orchid',
+        'palegoldenrod',
+        'palegreen',
+        'paleturquoise',
+        'palevioletred',
+        'papayawhip',
+        'peachpuff',
+        'peru',
+        'pink',
+        'plum',
+        'powderblue',
+        'purple',
+        'red',
+        'rosybrown',
+        'royalblue',
+        'saddlebrown',
+        'salmon',
+        'sandybrown',
+        'seagreen',
+        'seashell',
+        'sienna',
+        'silver',
+        'skyblue',
+        'slateblue',
+        'slategray',
+        'snow',
+        'springgreen',
+        'steelblue',
+        'tan',
+        'teal',
+        'thistle',
+        'tomato',
+        'turquoise',
+        'violet',
+        'wheat',
+        'white',
+        'whitesmoke',
+        'yellow',
+        'yellowgreen',
+    ];
+
+    private const POSSIBLE_HAIR_COLORS = [
+        'aqua',
+        'black',
+        'blue',
+        'fuchsia',
+        'gray',
+        'green',
+        'lime',
+        'maroon',
+        'navy',
+        'olive',
+        'purple',
+        'red',
+        'silver',
+        'teal',
+        'white',
+        'yellow',
+        'aliceblue',
+        'antiquewhite',
+        'aqua',
+        'aquamarine',
+        'azure',
+        'beige',
+        'bisque',
+        'black',
+        'blanchedalmond',
+        'blue',
+        'blueviolet',
+        'brown',
+        'burlywood',
+        'cadetblue',
+        'chartreuse',
+        'chocolate',
+        'coral',
+        'cornflowerblue',
+        'cornsilk',
+        'crimson',
+        'cyan',
+        'darkblue',
+        'darkcyan',
+        'darkgoldenrod',
+        'darkgray',
+        'darkgreen',
+        'darkkhaki',
+        'darkmagenta',
+        'darkolivegreen',
+        'darkorange',
+        'darkorchid',
+        'darkred',
+        'darksalmon',
+        'darkseagreen',
+        'darkslateblue',
+        'darkslategray',
+        'darkturquoise',
+        'darkviolet',
+        'deeppink',
+        'deepskyblue',
+        'dimgray',
+        'dodgerblue',
+        'firebrick',
+        'floralwhite',
+        'forestgreen',
+        'fuchsia',
+        'gainsboro',
+        'ghostwhite',
+        'gold',
+        'goldenrod',
+        'gray',
+        'green',
+        'greenyellow',
+        'honeydew',
+        'hotpink',
+        'indianred',
+        'indigo',
+        'ivory',
+        'khaki',
+        'lavender',
+        'lavenderblush',
+        'lawngreen',
+        'lemonchiffon',
+        'lightblue',
+        'lightcoral',
+        'lightcyan',
+        'lightgoldenrodyellow',
+        'lightgreen',
+        'lightgrey',
+        'lightpink',
+        'lightsalmon',
+        'lightseagreen',
+        'lightskyblue',
+        'lightslategray',
+        'lightsteelblue',
+        'lightyellow',
+        'lime',
+        'limegreen',
+        'linen',
+        'magenta',
+        'maroon',
+        'mediumaquamarine',
+        'mediumblue',
+        'mediumorchid',
+        'mediumpurple',
+        'mediumseagreen',
+        'mediumslateblue',
+        'mediumspringgreen',
+        'mediumturquoise',
+        'mediumvioletred',
+        'midnightblue',
+        'mintcream',
+        'mistyrose',
+        'moccasin',
+        'navajowhite',
+        'navy',
+        'navyblue',
+        'oldlace',
+        'olive',
+        'olivedrab',
+        'orange',
+        'orangered',
+        'orchid',
+        'palegoldenrod',
+        'palegreen',
+        'paleturquoise',
+        'palevioletred',
+        'papayawhip',
+        'peachpuff',
+        'peru',
+        'pink',
+        'plum',
+        'powderblue',
+        'purple',
+        'red',
+        'rosybrown',
+        'royalblue',
+        'saddlebrown',
+        'salmon',
+        'sandybrown',
+        'seagreen',
+        'seashell',
+        'sienna',
+        'silver',
+        'skyblue',
+        'slateblue',
+        'slategray',
+        'snow',
+        'springgreen',
+        'steelblue',
+        'tan',
+        'teal',
+        'thistle',
+        'tomato',
+        'turquoise',
+        'violet',
+        'wheat',
+        'white',
+        'whitesmoke',
+        'yellow',
+        'yellowgreen',
+    ];
+
+    private const POSSIBLE_EYE_COLORS = [
+        'aqua',
+        'black',
+        'blue',
+        'fuchsia',
+        'gray',
+        'green',
+        'lime',
+        'maroon',
+        'navy',
+        'olive',
+        'purple',
+        'red',
+        'silver',
+        'teal',
+        'white',
+        'yellow',
+        'aliceblue',
+        'antiquewhite',
+        'aqua',
+        'aquamarine',
+        'azure',
+        'beige',
+        'bisque',
+        'black',
+        'blanchedalmond',
+        'blue',
+        'blueviolet',
+        'brown',
+        'burlywood',
+        'cadetblue',
+        'chartreuse',
+        'chocolate',
+        'coral',
+        'cornflowerblue',
+        'cornsilk',
+        'crimson',
+        'cyan',
+        'darkblue',
+        'darkcyan',
+        'darkgoldenrod',
+        'darkgray',
+        'darkgreen',
+        'darkkhaki',
+        'darkmagenta',
+        'darkolivegreen',
+        'darkorange',
+        'darkorchid',
+        'darkred',
+        'darksalmon',
+        'darkseagreen',
+        'darkslateblue',
+        'darkslategray',
+        'darkturquoise',
+        'darkviolet',
+        'deeppink',
+        'deepskyblue',
+        'dimgray',
+        'dodgerblue',
+        'firebrick',
+        'floralwhite',
+        'forestgreen',
+        'fuchsia',
+        'gainsboro',
+        'ghostwhite',
+        'gold',
+        'goldenrod',
+        'gray',
+        'green',
+        'greenyellow',
+        'honeydew',
+        'hotpink',
+        'indianred',
+        'indigo',
+        'ivory',
+        'khaki',
+        'lavender',
+        'lavenderblush',
+        'lawngreen',
+        'lemonchiffon',
+        'lightblue',
+        'lightcoral',
+        'lightcyan',
+        'lightgoldenrodyellow',
+        'lightgreen',
+        'lightgrey',
+        'lightpink',
+        'lightsalmon',
+        'lightseagreen',
+        'lightskyblue',
+        'lightslategray',
+        'lightsteelblue',
+        'lightyellow',
+        'lime',
+        'limegreen',
+        'linen',
+        'magenta',
+        'maroon',
+        'mediumaquamarine',
+        'mediumblue',
+        'mediumorchid',
+        'mediumpurple',
+        'mediumseagreen',
+        'mediumslateblue',
+        'mediumspringgreen',
+        'mediumturquoise',
+        'mediumvioletred',
+        'midnightblue',
+        'mintcream',
+        'mistyrose',
+        'moccasin',
+        'navajowhite',
+        'navy',
+        'navyblue',
+        'oldlace',
+        'olive',
+        'olivedrab',
+        'orange',
+        'orangered',
+        'orchid',
+        'palegoldenrod',
+        'palegreen',
+        'paleturquoise',
+        'palevioletred',
+        'papayawhip',
+        'peachpuff',
+        'peru',
+        'pink',
+        'plum',
+        'powderblue',
+        'purple',
+        'red',
+        'rosybrown',
+        'royalblue',
+        'saddlebrown',
+        'salmon',
+        'sandybrown',
+        'seagreen',
+        'seashell',
+        'sienna',
+        'silver',
+        'skyblue',
+        'slateblue',
+        'slategray',
+        'snow',
+        'springgreen',
+        'steelblue',
+        'tan',
+        'teal',
+        'thistle',
+        'tomato',
+        'turquoise',
+        'violet',
+        'wheat',
+        'white',
+        'whitesmoke',
+        'yellow',
+        'yellowgreen',
+    ];
+
     private const POSSIBLE_SOFTSKILLS = [
         'Confidence',
         'Cooperation',
@@ -292,32 +772,69 @@ class Human
         $this->weightKilograms = $weightKilograms;
 
         if (!$skills) {
-            $skills = $this->createRandomSkills();
+            $skills = $this->getRandomSkills();
         }
         $this->skills = $skills;
 
         if (!$softSkills) {
-            $softSkills = $this->createRandomSoftSkills();
+            $softSkills = $this->getRandomSoftSkills();
         }
         $this->softSkills = $softSkills;
 
         if (!$eyeColor) {
-            $eyeColor = $this->createRandomColor();
+            $eyeColor = $this->getRandomEyeColor();
         }
         $this->eyeColor = $eyeColor;
 
         if (!$hairColor) {
-            $hairColor = $this->createRandomColor();
+            $hairColor = $this->getRandomHairColor();
         }
         $this->hairColor = $hairColor;
 
         if (!$skinColor) {
-            $skinColor = $this->createRandomColor();
+            $skinColor = $this->getRandomSkinColor();
         }
         $this->skinColor = $skinColor;
     }
 
-    private function createRandomSkills(): array
+    /**
+     * create a random birth date YYYY-MM-DD
+     * @return string random birth date
+     */
+    private function createRandomBirthday(): string
+    {
+        $day = rand(1, 28);
+        $month = rand(1, 12);
+        $maxYear = date('Y') - 1;
+        $year = rand(1920, $maxYear);
+        return $year.'-'.$month.'-'.$day;
+    }
+
+    /**
+     * create random html hex color code
+     * @return string html hex color code
+     */
+    private function createRandomColor(): string
+    {
+        return sprintf('#%06X', mt_rand(0, 0xFFFFFF));
+    }
+
+    /**
+     * create random number
+     * @param int $min minimum number
+     * @param int $max maximum number
+     * @return string html hex color code
+     */
+    private function createRandomNumber(int $min, int $max): int
+    {
+        return rand($min, $max);
+    }
+
+    /**
+     * get random skills
+     * @return array skills
+     */
+    private function getRandomSkills(): array
     {
         $skills = [];
         for ($i = 0; $i < rand(2, 5); $i++) {
@@ -329,7 +846,11 @@ class Human
         return $skills;
     }
 
-    public function createRandomSoftSkills(): array
+    /**
+     * get random soft skills
+     * @return array soft skills
+     */
+    private function getRandomSoftSkills(): array
     {
         $softSkills = [];
         for ($i = 0; $i < rand(2, 5); $i++) {
@@ -341,6 +862,37 @@ class Human
         return $softSkills;
     }
 
+    /**
+     * get a random eye color
+     * @return string css color name
+     */
+    private function getRandomEyeColor(): string
+    {
+        return self::POSSIBLE_EYE_COLORS[rand(0, count(self::POSSIBLE_EYE_COLORS) - 1)];
+    }
+
+    /**
+     * get a random hair color
+     * @return string css color name
+     */
+    private function getRandomHairColor(): string
+    {
+        return self::POSSIBLE_HAIR_COLORS[rand(0, count(self::POSSIBLE_HAIR_COLORS) - 1)];
+    }
+
+    /**
+     * get a random skin color
+     * @return string css color name
+     */
+    private function getRandomSkinColor(): string
+    {
+        return self::POSSIBLE_SKIN_COLORS[rand(0, count(self::POSSIBLE_SKIN_COLORS) - 1)];
+    }
+
+    /**
+     * get svg full body image depending on human properties
+     * @return string svg image code
+     */
     public function getFullBodyImage(): string
     {
         $svg = '
@@ -369,6 +921,10 @@ class Human
         return $svg;
     }
 
+    /**
+     * get the zodiac of the human depending on birthday
+     * @return string zodiac name
+     */
     public function getZodiac(): string
     {
         $dxa = substr($this->birthday->format('Y-m-d'), 5);
@@ -394,25 +950,10 @@ class Human
         return $zodiac ?? 'Capricorn';
     }
 
-    private function createRandomBirthday(): string
-    {
-        $day = rand(1, 28);
-        $month = rand(1, 12);
-        $maxYear = date('Y') - 1;
-        $year = rand(1920, $maxYear);
-        return $year.'-'.$month.'-'.$day;
-    }
-
-    private function createRandomColor(): string
-    {
-        return sprintf('#%06X', mt_rand(0, 0xFFFFFF));
-    }
-
-    private function createRandomNumber($min, $max): int
-    {
-        return rand($min, $max);
-    }
-
+    /**
+     * add a skill
+     * @param string possible skill name
+     */
     public function addSkill(string $skill)
     {
         if (!in_array($skill, $this->skills)) {

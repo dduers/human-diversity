@@ -64,9 +64,9 @@ foreach ($humans as $human1) {
             <tr><td class="property">Skills</td><td colspan="2">'.implode(', ', $human1->getSkills()).'</td></tr>
             <tr><td class="property">Soft-Skills</td><td colspan="2">'.implode(', ', $human1->getSoftSkills()).'</td></tr>
             <tr><td class="property">Body-Mass-Index</td><td colspan="2">'.$human1->getBodyMassIndex().'</td></tr>
-            <tr><td class="property">Eye-Color</td><td class="color" style="background-color:'.$human1->getEyeColor().';"></td><td></td></tr>
-            <tr><td class="property">Hair-Color</td><td class="color" style="background-color:'.$human1->getHairColor().';"></td><td></td></tr>
-            <tr><td class="property">Skin-Color</td><td class="color" style="background-color:'.$human1->getSkinColor().';"></td><td></td></tr>
+            <tr><td class="property">Eye-Color</td><td class="color" style="background-color:'.$human1->getEyeColor().';"></td><td>'.$human1->getEyeColor().'</td></tr>
+            <tr><td class="property">Hair-Color</td><td class="color" style="background-color:'.$human1->getHairColor().';"></td><td>'.$human1->getHairColor().'</td></tr>
+            <tr><td class="property">Skin-Color</td><td class="color" style="background-color:'.$human1->getSkinColor().';"></td><td>'.$human1->getSkinColor().'</td></tr>
         </table>
         <br/>
         '.$human1->getFullBodyImage().'<br/><br/>';
