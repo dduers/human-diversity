@@ -341,6 +341,34 @@ class Human
         return $softSkills;
     }
 
+    public function getFullBodyImage(): string
+    {
+        $svg = '
+            <svg height="500" width="500">
+                <!-- left leg -->
+                <line x1="160" y1="310" x2="200" y2="480" stroke="'.$this->skinColor.'" stroke-width="10" />
+                <!-- right leg -->
+                <line x1="140" y1="310" x2="90" y2="480" stroke="'.$this->skinColor.'" stroke-width="10" /> 
+                <!-- right art -->
+                <line x1="280" y1="120" x2="150" y2="250" stroke="'.$this->skinColor.'" stroke-width="10" />
+                <!-- left art -->
+                <line x1="10" y1="120" x2="150" y2="250" stroke="'.$this->skinColor.'" stroke-width="10" />
+                <!-- body -->
+                <ellipse cx="150" cy="200" rx="50" ry="120" stroke="black" stroke-width="1" fill="'.$this->skinColor.'" />
+                <!-- head -->
+                <circle cx="150" cy="50" r="40" stroke="black" stroke-width="1" fill="'.$this->skinColor.'" />
+                <!-- left eye -->
+                <ellipse cx="135" cy="35" rx="8" ry="4" stroke="black" stroke-width="1" fill="'.$this->eyeColor.'" />
+                <!-- right eye -->
+                <ellipse cx="165" cy="35" rx="8" ry="4" stroke="black" stroke-width="1" fill="'.$this->eyeColor.'" />
+                <!-- mouth -->
+                <ellipse cx="150" cy="63" rx="15" ry="7" stroke="black" stroke-width="1" fill="red" />
+            </svg>
+        ';
+
+        return $svg;
+    }
+
     public function getZodiac(): string
     {
         $dxa = substr($this->birthday->format('Y-m-d'), 5);

@@ -67,7 +67,9 @@ foreach ($humans as $human1) {
             <tr><td class="property">Eye-Color</td><td class="color" style="background-color:'.$human1->getEyeColor().';"></td><td></td></tr>
             <tr><td class="property">Hair-Color</td><td class="color" style="background-color:'.$human1->getHairColor().';"></td><td></td></tr>
             <tr><td class="property">Skin-Color</td><td class="color" style="background-color:'.$human1->getSkinColor().';"></td><td></td></tr>
-        </table><br/>';
+        </table>
+        <br/>
+        '.$human1->getFullBodyImage().'<br/><br/>';
 }
 
 echo '<button onclick="javascript:window.location.href=\'/\'";>Go for recreation!</button>';
