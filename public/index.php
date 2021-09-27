@@ -7,20 +7,20 @@
         <meta name="description" content="Look for humans with different skills, attitudes and properties :) - This page exists mainly for humorous, recreational and inspirational purpose!" />
         <meta name="keywords" content="human, diversity, skills, skill, soft, softskill, softskills, humour">
         <meta name="author" content="Daniel Duersteler">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.1/css/bootstrap.min.css" integrity="sha512-6KY5s6UI5J7SVYuZB4S/CZMyPylqyyNZco376NM2Z8Sb8OxEdp02e1jkKk/wZxIEmjQ6DRCEBhni+gpr9c4tvA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
         <link rel="stylesheet" type="text/css" href="css/style.css" />
     </head>
-    <body>
+    <body class="container">
         <h1>Human Diversity</h1>
         <hr/>
-        <br/>
-        <br/>
+        <br/><br/>
 
 <?php if (!isset($_GET['count'])) : ?>
         <form method="GET">
-            <label for="count">How many humans</label>
+            <h3>How many humans</h3>
             <p>For how many humans are you looking for?</p>
-            <input type="number" id="count" name="count" min="2" max="18" required />
-            <button type="submit">Search</button>
+            <input class="form-control form-control-lg" type="number" id="count" name="count" min="2" max="18" required />
+            <button class="btn btn-lg btn-primary mt-3" type="submit">Search</button>
         </form>
 <?php else :
 
@@ -39,13 +39,7 @@ if ($_GET['count'] > 18)
 // create humans
 $humans = [];
 for ($i = 0; $i < $_GET['count']; $i++) {
-    if (rand(0, 1) === 1) {
-        $name = $femaleNames[rand(0, count($femaleNames) - 1)];
-        $humans[] = new Woman($name);
-    } else {
-        $name = $maleNames[rand(0, count($maleNames) - 1)];
-        $humans[] = new Man($name);
-    }
+    $humans[] = new Human();
 }
 
 // output human properties
@@ -72,16 +66,14 @@ foreach ($humans as $human1) {
         '.$human1->getFullBodyImage().'<br/><br/>';
 }
 
-echo '<button onclick="javascript:window.location.href=\'/\'";>Go for recreation!</button>';
+echo '<a class="btn btn-lg btn-primary mt-5" href="/">Go for recreation!</a>';
 
 endif ?>
 
-    <br/>
-    <br/>
-    <br/>
-    <br/>
+    <br/><br/><br/><br/>
     <hr/>
     <p>This page exists mainly for humorous, recreational and inspirational purpose!</p>
     <p><a href="https://www.xsite.ch">XSite Web Development & Design</a></p>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.1/js/bootstrap.bundle.min.js" integrity="sha512-trzlduO3EdG7Q0xK4+A+rPbcolVt37ftugUSOvrHhLR5Yw5rsfWXcpB3CPuEBcRBCHpc+j18xtQ6YrtVPKCdsg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     </body>
 </html>

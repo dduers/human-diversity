@@ -10,6 +10,7 @@ class Human
      * properties 
      */
     private string $name;
+    private string $gender;
     private DateTime $birthday;
     private int $sizeCentimeters;
     private int $weightKilograms;
@@ -26,6 +27,214 @@ class Human
     private const MIN_BODY_SIZE = 50;
     private const MAX_WEIGHT = 180;
     private const MIN_WEIGHT = 3;
+    private const POSSIBLE_GENDERS = [
+        'male',
+        'female',
+    ];
+    private const POSSIBLE_FEMALE_NAMES = [
+        'Olivia',
+        'Emma',
+        'Ava',
+        'Charlotte',
+        'Sophia',
+        'Amelia',
+        'Isabella',
+        'Mia',
+        'Evelyn',
+        'Harper',
+        'Camila',
+        'Gianna',
+        'Abigail',
+        'Luna',
+        'Ella',
+        'Elizabeth',
+        'Sofia',
+        'Emily',
+        'Avery',
+        'Mila',
+        'Scarlett',
+        'Eleanor',
+        'Madison',
+        'Layla',
+        'Penelope',
+        'Aria',
+        'Chloe',
+        'Grace',
+        'Ellie',
+        'Nora',
+        'Hazel',
+        'Zoey',
+        'Riley',
+        'Victoria',
+        'Lily',
+        'Aurora',
+        'Violet',
+        'Nova',
+        'Hannah',
+        'Emilia',
+        'Zoe',
+        'Stella',
+        'Everly',
+        'Isla',
+        'Leah',
+        'Lillian',
+        'Addison',
+        'Willow',
+        'Lucy',
+        'Paisley',
+        'Natalie',
+        'Naomi',
+        'Eliana',
+        'Brooklyn',
+        'Elena',
+        'Aubrey',
+        'Claire',
+        'Ivy',
+        'Kinsley',
+        'Audrey',
+        'Maya',
+        'Genesis',
+        'Skylar',
+        'Bella',
+        'Aaliyah',
+        'Madelyn',
+        'Savannah',
+        'Anna',
+        'Delilah',
+        'Serenity',
+        'Caroline',
+        'Kennedy',
+        'Valentina',
+        'Ruby',
+        'Sophie',
+        'Alice',
+        'Gabriella',
+        'Sadie',
+        'Ariana',
+        'Allison',
+        'Hailey',
+        'Autumn',
+        'Nevaeh',
+        'Natalia',
+        'Quinn',
+        'Josephine',
+        'Sarah',
+        'Cora',
+        'Emery',
+        'Samantha',
+        'Piper',
+        'Leilani',
+        'Eva',
+        'Everleigh',
+        'Madeline',
+        'Lydia',
+        'Jade',
+        'Peyton',
+        'Brielle',
+        'Adeline',
+    ];
+    private const POSSIBLE_MALE_NAMES = [
+        'Liam',
+        'Noah',
+        'Oliver',
+        'Elijah',
+        'William',
+        'James',
+        'Benjamin',
+        'Lucas',
+        'Henry',
+        'Alexander',
+        'Mason',
+        'Michael',
+        'Ethan',
+        'Daniel',
+        'Jacob',
+        'Logan',
+        'Jackson',
+        'Levi',
+        'Sebastian',
+        'Mateo',
+        'Jack',
+        'Owen',
+        'Theodore',
+        'Aiden',
+        'Samuel',
+        'Joseph',
+        'John',
+        'David',
+        'Wyatt',
+        'Matthew',
+        'Luke',
+        'Asher',
+        'Carter',
+        'Julian',
+        'Grayson',
+        'Leo',
+        'Jayden',
+        'Gabriel',
+        'Isaac',
+        'Lincoln',
+        'Anthony',
+        'Hudson',
+        'Dylan',
+        'Ezra',
+        'Thomas',
+        'Charles',
+        'Christopher',
+        'Jaxon',
+        'Maverick',
+        'Josiah',
+        'Isaiah',
+        'Andrew',
+        'Elias',
+        'Joshua',
+        'Nathan',
+        'Caleb',
+        'Ryan',
+        'Adrian',
+        'Miles',
+        'Eli',
+        'Nolan',
+        'Christian',
+        'Aaron',
+        'Cameron',
+        'Ezekiel',
+        'Colton',
+        'Luca',
+        'Landon',
+        'Hunter',
+        'Jonathan',
+        'Santiago',
+        'Axel',
+        'Easton',
+        'Cooper',
+        'Jeremiah',
+        'Angel',
+        'Roman',
+        'Connor',
+        'Jameson',
+        'Robert',
+        'Greyson',
+        'Jordan',
+        'Ian',
+        'Carson',
+        'Jaxson',
+        'Leonardo',
+        'Nicholas',
+        'Dominic',
+        'Austin',
+        'Everett',
+        'Brooks',
+        'Xavier',
+        'Kai',
+        'Jose',
+        'Parker',
+        'Adam',
+        'Jace',
+        'Wesley',
+        'Kayden',
+        'Silas',
+    ];
     private const POSSIBLE_SKILLS = [
         'Cooking',
         'Hacker',
@@ -755,6 +964,7 @@ class Human
     /**
      * human class constructor
      * @param string $name name
+     * @param string $gender gender
      * @param string (optional) $birthday YYYY-MM-DD
      * @param int (optional) $sizeCentimeters 
      * @param int (optional) $weightKilograms 
@@ -765,7 +975,8 @@ class Human
      * @param string (optional) $skinColor 
      */
     function __construct(
-        string $name, 
+        ?string $name = NULL, 
+        ?string $gender = NULL, 
         ?string $birthday = NULL, 
         ?int $sizeCentimeters = NULL, 
         ?int $weightKilograms = NULL, 
@@ -775,6 +986,24 @@ class Human
         ?string $hairColor = NULL, 
         ?string $skinColor = NULL
     ) {
+        
+
+        if (!$gender) {
+            $gender = $this->getRandomGender();
+        }
+        $this->gender = $gender;
+
+        if (!$name) {
+            switch ($this->gender) {
+                case 'male':
+                    $name = $this->getRandomMaleName();
+                    break;
+                
+                case 'female':
+                    $name = $this->getRandomFemaleName();
+                    break;
+            }
+        }
         $this->name = $name;
 
         if (!$birthday) {
@@ -890,6 +1119,25 @@ class Human
     private function getRandomEyeColor(): string
     {
         return self::POSSIBLE_EYE_COLORS[rand(0, count(self::POSSIBLE_EYE_COLORS) - 1)];
+    }
+
+    private function getRandomFemaleName(): string
+    {
+        return self::POSSIBLE_FEMALE_NAMES[rand(0, count(self::POSSIBLE_FEMALE_NAMES) - 1)];
+    }
+
+    private function getRandomMaleName(): string
+    {
+        return self::POSSIBLE_MALE_NAMES[rand(0, count(self::POSSIBLE_MALE_NAMES) - 1)];
+    }
+
+    /**
+     * get a random gender
+     * @return string gender 
+     */
+    private function getRandomGender(): string
+    {
+        return self::POSSIBLE_GENDERS[rand(0, count(self::POSSIBLE_GENDERS) - 1)];
     }
 
     /**
@@ -1127,4 +1375,19 @@ class Human
     {
         return $this->skinColor;
     }
+
+    public function getGender(): string
+    {
+        return $this->gender;
+    }
+
+    public function setGender(string $gender): void
+    {
+        $gender = strtolower($gender);
+        if (in_array($gender, self::POSSIBLE_GENDERS)) {
+            $this->gender = $gender;
+        } else {
+            throw new Exception('UNKNOWN_GENDER');
+        }
+    }        
 }
