@@ -1165,18 +1165,17 @@ class Human
     public function getFullBodyImage(): string
     {
         $bodyMassIndex = $this->getBodyMassIndex();
-        $bodyMassIndexPixels = $bodyMassIndex / 30;
         $humanSize = $this->getSizeInCentimeters();
 
         $humanSizePixels = $humanSize * 2;
+        $bodyMassIndexPixels = $bodyMassIndex / 30;
 
         $proportions = round($humanSizePixels / 10); 
         $headSizePixels = $proportions * 1;
         $bodySizePixels = $proportions * 4;
         $legsSizePixels = $proportions * 5;
         $armsSizePixels = $proportions * 4;
-
-        $armsAndLegsThickness = 10 + ($bodyMassIndexPixels * 6);
+        $armsAndLegsThicknessPixels = round($bodyMassIndexPixels * 10);
 
         $svg = '
             <svg height="'.$humanSizePixels.'" width="100%">
@@ -1188,7 +1187,7 @@ class Human
                     x2="'.(160 + $proportions).'" 
                     y2="'.($headSizePixels + $bodySizePixels + $legsSizePixels).'" 
                     stroke="'.$this->skinColor.'" 
-                    stroke-width="'.$armsAndLegsThickness.'" 
+                    stroke-width="'.$armsAndLegsThicknessPixels.'" 
                 />
                 
                 <!-- right leg -->
@@ -1198,7 +1197,7 @@ class Human
                     x2="'.(140 - $proportions).'" 
                     y2="'.($headSizePixels + $bodySizePixels + $legsSizePixels).'" 
                     stroke="'.$this->skinColor.'" 
-                    stroke-width="'.$armsAndLegsThickness.'" 
+                    stroke-width="'.$armsAndLegsThicknessPixels.'" 
                 /> 
                 
                 <!-- right arm -->
@@ -1208,7 +1207,7 @@ class Human
                     x2="150" 
                     y2="'.($headSizePixels + $bodySizePixels / 2).'" 
                     stroke="'.$this->skinColor.'" 
-                    stroke-width="'.$armsAndLegsThickness.'" 
+                    stroke-width="'.$armsAndLegsThicknessPixels.'" 
                 />
                 
                 <!-- left arm -->
@@ -1218,7 +1217,7 @@ class Human
                     x2="150" 
                     y2="'.($headSizePixels + $bodySizePixels / 2).'" 
                     stroke="'.$this->skinColor.'" 
-                    stroke-width="'.$armsAndLegsThickness.'"
+                    stroke-width="'.$armsAndLegsThicknessPixels.'"
                 />
                 
                 <!-- body -->
