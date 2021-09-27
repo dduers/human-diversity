@@ -1176,7 +1176,7 @@ class Human
         $armsSizePixels = $proportions * 4;
 
         $svg = '
-            <svg height="'.$humanSizePixels.'" width="500">
+            <svg height="'.$humanSizePixels.'" width="100%">
                 
                 <!-- left leg -->
                 <line 
