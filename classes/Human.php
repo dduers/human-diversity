@@ -1176,6 +1176,8 @@ class Human
         $legsSizePixels = $proportions * 5;
         $armsSizePixels = $proportions * 4;
 
+        $armsAndLegsThickness = 10 + ($bodyMassIndexPixels * 6);
+
         $svg = '
             <svg height="'.$humanSizePixels.'" width="100%">
                 
@@ -1186,7 +1188,7 @@ class Human
                     x2="'.(160 + $proportions).'" 
                     y2="'.($headSizePixels + $bodySizePixels + $legsSizePixels).'" 
                     stroke="'.$this->skinColor.'" 
-                    stroke-width="10" 
+                    stroke-width="'.$armsAndLegsThickness.'" 
                 />
                 
                 <!-- right leg -->
@@ -1196,7 +1198,7 @@ class Human
                     x2="'.(140 - $proportions).'" 
                     y2="'.($headSizePixels + $bodySizePixels + $legsSizePixels).'" 
                     stroke="'.$this->skinColor.'" 
-                    stroke-width="10" 
+                    stroke-width="'.$armsAndLegsThickness.'" 
                 /> 
                 
                 <!-- right arm -->
@@ -1206,7 +1208,7 @@ class Human
                     x2="150" 
                     y2="'.($headSizePixels + $bodySizePixels / 2).'" 
                     stroke="'.$this->skinColor.'" 
-                    stroke-width="10" 
+                    stroke-width="'.$armsAndLegsThickness.'" 
                 />
                 
                 <!-- left arm -->
@@ -1216,7 +1218,7 @@ class Human
                     x2="150" 
                     y2="'.($headSizePixels + $bodySizePixels / 2).'" 
                     stroke="'.$this->skinColor.'" 
-                    stroke-width="10" d
+                    stroke-width="'.$armsAndLegsThickness.'"
                 />
                 
                 <!-- body -->
