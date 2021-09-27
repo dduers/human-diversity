@@ -49,7 +49,7 @@ foreach ($humans as $human1) {
     echo 
         '<h3>Human #'.$i.'</h3>
         <table class="mb-5">
-            <tr><td class="property '.($human1->getGender() === 'female' ? 'female' : 'male').'">Name</td><td colspan="2" class="'.($human1->getGender() === 'female' ? 'female' : 'male').'">'.$human1->getName().'</td></tr>
+            <tr class="'.($human1->getGender() === 'female' ? 'female' : 'male').'"><td><b>Name</b></td><td colspan="2">'.$human1->getName().'</td></tr>
             <tr><td class="property">Gender</td><td colspan="2">'.$human1->getGender().'</td></tr>
             <tr><td class="property">Birthday</td><td colspan="2">'.$human1->getBirthday().' ('.$human1->getZodiac().')</td></tr>
             <tr><td class="property">Age</td><td colspan="2">'.$human1->getAgeInYears().' years</td></tr>
