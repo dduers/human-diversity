@@ -1165,6 +1165,7 @@ class Human
     public function getFullBodyImage(): string
     {
         $bodyMassIndex = $this->getBodyMassIndex();
+        $bodyMassIndexPixels = $bodyMassIndex / 30;
         $humanSize = $this->getSizeInCentimeters();
 
         $humanSizePixels = $humanSize * 2;
@@ -1222,7 +1223,7 @@ class Human
                 <ellipse 
                     cx="150" 
                     cy="'.($bodySizePixels / 2 + $headSizePixels).'" 
-                    rx="'.round($bodySizePixels / 4).'" 
+                    rx="'.(round($bodySizePixels / 4) * $bodyMassIndexPixels).'" 
                     ry="'.($bodySizePixels / 2).'" 
                     stroke="black" 
                     stroke-width="1" 
