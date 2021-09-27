@@ -48,7 +48,7 @@ foreach ($humans as $human1) {
     $i++;
     echo 
         '<h3>Human #'.$i.'</h3>
-        <table>
+        <table class="mb-5">
             <tr><td class="property '.($human1->getGender() === 'female' ? 'female' : 'male').'">Name</td><td colspan="2" class="'.($human1->getGender() === 'female' ? 'female' : 'male').'">'.$human1->getName().'</td></tr>
             <tr><td class="property">Gender</td><td colspan="2">'.$human1->getGender().'</td></tr>
             <tr><td class="property">Birthday</td><td colspan="2">'.$human1->getBirthday().' ('.$human1->getZodiac().')</td></tr>
@@ -61,9 +61,8 @@ foreach ($humans as $human1) {
             <tr><td class="property">Eye-Color</td><td class="color" style="background-color:'.$human1->getEyeColor().';"></td><td>'.$human1->getEyeColor().'</td></tr>
             <tr><td class="property">Hair-Color</td><td class="color" style="background-color:'.$human1->getHairColor().';"></td><td>'.$human1->getHairColor().'</td></tr>
             <tr><td class="property">Skin-Color</td><td class="color" style="background-color:'.$human1->getSkinColor().';"></td><td>'.$human1->getSkinColor().'</td></tr>
-        </table>
-        <br/>
-        '.$human1->getFullBodyImage().'<br/><br/>';
+            <tr><td class="property">Picture</td><td colspan="2">'.$human1->getFullBodyImage().'</td></tr>
+        </table>';
 }
 
 echo '<a class="btn btn-lg btn-primary mt-5" href="/">Go for recreation!</a>';

@@ -8,15 +8,17 @@ table {
     width: 100%;
 }
 .female {
-    background-color: pink;
+    background-color: pink !important;
     border-bottom: 3px solid black;
 }
 .male {
-    background-color: lightblue;
+    background-color: lightblue !important;;
     border-bottom: 3px solid black;
 }
 .property {
     width: 200px;
+    font-weight: bold;
+    background-color:#efefef;
 }
 .color {
     width:50px;
