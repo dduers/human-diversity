@@ -1,19 +1,8 @@
-td {
-    border: 1px solid black;
-    padding: 5px;
-}
-table {
-    border-collapse: collapse;
-    border: 3px solid black;
-    width: 100%;
-}
 .female {
     background-color: pink !important;
-    border-bottom: 3px solid black;
 }
 .male {
-    background-color: lightblue !important;;
-    border-bottom: 3px solid black;
+    background-color: lightblue !important;
 }
 .property {
     width: 200px;

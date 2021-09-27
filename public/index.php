@@ -25,8 +25,9 @@
 <?php else :
 
 echo 
-    '<p>The characters listed are not actual members and purely fictional, but you might meet people alike.</p>
-    <p class="mb-5">Listen to your stereo, don\'t put them in the microwave!</p>';
+    '<p>The characters listed are not actual people and purely fictional, but you might meet human beeings alike.</p>
+    <p>Listen to your stereo, don\'t put them in the microwave!</p>
+    <p class="mb-5">Hint: The full body pictures are just scratching the surface and are rather schematic.</p>';
 
 require_once '../config.php';
 
@@ -48,7 +49,7 @@ foreach ($humans as $human1) {
     $i++;
     echo 
         '<h3>Human #'.$i.'</h3>
-        <table class="mb-5">
+        <table class="table table-bordered mb-5">
             <tr class="'.($human1->getGender() === 'female' ? 'female' : 'male').'"><td><b>Name</b></td><td colspan="2">'.$human1->getName().'</td></tr>
             <tr><td class="property">Gender</td><td colspan="2">'.$human1->getGender().'</td></tr>
             <tr><td class="property">Birthday</td><td colspan="2">'.$human1->getBirthday().' ('.$human1->getZodiac().')</td></tr>
@@ -65,7 +66,7 @@ foreach ($humans as $human1) {
         </table>';
 }
 
-echo '<a class="btn btn-lg btn-primary mt-5" href="/">Go for recreation!</a>';
+echo '<a class="btn btn-lg btn-primary mt-5" href="/">Wanna recreation!</a>';
 
 endif ?>
 
