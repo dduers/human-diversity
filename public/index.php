@@ -12,6 +12,7 @@
     </head>
     <body class="container mt-5 mb-5">
         <h1>Human Diversity</h1>
+        <p>Search for humans with different skills, looks and abilities</p>
         <hr/>
         <br/><br/>
 
@@ -24,8 +25,7 @@
         </form>
 <?php else :
 
-echo 
-    '<p>The characters listed are not actual people and purely fictional, but you might meet human beeings alike.</p>
+echo '<p>The characters listed are not actual people and purely fictional, but you might meet human beeings alike.</p>
     <p>Listen to your stereo, don\'t put them in the microwave!</p>
     <p class="mb-5">Hint: The full body pictures are just scratching the surface and are rather schematic.</p>';
 
