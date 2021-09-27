@@ -1276,7 +1276,12 @@ class Human
                 />
 
                 <!-- hair -->
-                <path d="M208,'.$hairSizePixels.' a30,30 0 1,0 -115,0" fill="'.$this->hairColor.'" />
+                <path 
+                    d="M208,'.$hairSizePixels.' a30,30 0 1,0 -115,0" 
+                    stroke="black" 
+                    stroke-width="1" 
+                    fill="'.$this->hairColor.'" 
+                />
 
             </svg>
         ';
