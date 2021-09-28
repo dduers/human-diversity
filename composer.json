@@ -1,0 +1,20 @@
+{
+    "name": "dduers/human-diversity",
+    "description": "Search for humans with different skills, looks and abilities",
+    "type": "project",
+    "require": {
+        "dduers/pdo-xpress": "^1.0"
+    },
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Dduers\\HumanDiversity\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Daniel Duersteler",
+            "email": "daniel.duersteler@xsite.ch"
+        }
+    ]
+}

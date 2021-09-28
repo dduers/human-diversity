@@ -40,7 +40,7 @@ if ($_GET['count'] > 18)
 // create humans
 $humans = [];
 for ($i = 0; $i < $_GET['count']; $i++) {
-    $humans[] = new Human();
+    $humans[] = new \Dduers\HumanDiversity\Human();
 }
 
 // output human properties

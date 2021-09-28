@@ -1,6 +1,8 @@
 <?php
 declare(strict_types=1);
 
+namespace Dduers\HumanDiversity;
+
 /**
  * this describes a human beeing
  */
@@ -11,7 +13,7 @@ class Human
      */
     private string $name;
     private string $gender;
-    private DateTime $birthday;
+    private \DateTime $birthday;
     private int $sizeCentimeters;
     private int $weightKilograms;
     private string $eyeColor;
@@ -31,6 +33,10 @@ class Human
         'male',
         'female',
     ];
+
+    /**
+     * list of possible female names
+     */
     private const POSSIBLE_FEMALE_NAMES = [
         'Olivia',
         'Emma',
@@ -133,6 +139,10 @@ class Human
         'Brielle',
         'Adeline',
     ];
+
+    /**
+     * list of possible male names
+     */
     private const POSSIBLE_MALE_NAMES = [
         'Liam',
         'Noah',
@@ -235,7 +245,11 @@ class Human
         'Kayden',
         'Silas',
     ];
-    private const POSSIBLE_SKILLS = [
+
+    /**
+     * list of possible skills
+     */
+    private array $possibleSkills = [
         'Cooking',
         'Hacker',
         'Gardener',
@@ -453,6 +467,10 @@ class Human
         'Web Developer',
         'Writer',        
     ];
+
+    /**
+     * possible skin colors
+     */
     private const POSSIBLE_SKIN_COLORS = [
         'aqua',
         'black',
@@ -612,6 +630,10 @@ class Human
         'yellow',
         'yellowgreen',
     ];
+
+    /**
+     * list of possible hair colors
+     */
     private const POSSIBLE_HAIR_COLORS = [
         'aqua',
         'black',
@@ -771,6 +793,10 @@ class Human
         'yellow',
         'yellowgreen',
     ];
+
+    /**
+     * list of possible eye colors
+     */
     private const POSSIBLE_EYE_COLORS = [
         'aqua',
         'black',
@@ -930,7 +956,8 @@ class Human
         'yellow',
         'yellowgreen',
     ];
-    private const POSSIBLE_SOFTSKILLS = [
+
+    private array $possibleSoftSkills = [
         'Confidence',
         'Cooperation',
         'Courtesy',
@@ -1009,7 +1036,7 @@ class Human
         if (!$birthday) {
             $birthday = $this->createRandomBirthday();
         } 
-        $this->birthday = new DateTime($birthday);
+        $this->birthday = new \DateTime($birthday);
 
         if (!$sizeCentimeters) {
             $sizeCentimeters = $this->createRandomNumber(self::MIN_BODY_SIZE, self::MAX_BODY_SIZE);
@@ -1088,7 +1115,7 @@ class Human
     {
         $skills = [];
         for ($i = 0; $i < rand(2, 5); $i++) {
-            $possibleSkill = self::POSSIBLE_SKILLS[rand(0, count(self::POSSIBLE_SKILLS) - 1)];
+            $possibleSkill = $this->possibleSkills[rand(0, count($this->possibleSkills) - 1)];
             if (!in_array($possibleSkill, $skills)) {
                 $skills[] = $possibleSkill;
             }
@@ -1104,7 +1131,7 @@ class Human
     {
         $softSkills = [];
         for ($i = 0; $i < rand(2, 5); $i++) {
-            $possibleSoftSkill = self::POSSIBLE_SOFTSKILLS[rand(0, count(self::POSSIBLE_SOFTSKILLS) - 1)];
+            $possibleSoftSkill = $this->possibleSoftSkills[rand(0, count($this->possibleSoftSkills) - 1)];
             if (!in_array($possibleSoftSkill, $softSkills)) {
                 $softSkills[] = $possibleSoftSkill;
             }
@@ -1352,7 +1379,7 @@ class Human
 
     public function getAgeInYears(): int
     {
-        $now = new DateTime();
+        $now = new \DateTime();
         $age = date_diff($this->birthday, $now);
         return (int)$age->format('%y');
     }
@@ -1398,7 +1425,7 @@ class Human
         if (in_array($gender, self::POSSIBLE_GENDERS)) {
             $this->gender = $gender;
         } else {
-            throw new Exception('UNKNOWN_GENDER');
+            throw new \Exception('UNKNOWN_GENDER');
         }
     }        
 }

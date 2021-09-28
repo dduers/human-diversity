@@ -1,0 +1,67 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "This file is @generated automatically"
+    ],
+    "content-hash": "4efef23f7315fa33e4d6312e4b959e7c",
+    "packages": [
+        {
+            "name": "dduers/pdo-xpress",
+            "version": "1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/dduers/pdo-xpress.git",
+                "reference": "efde685d6de3b1f90006ccd9dd7074334e0d7c5e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/dduers/pdo-xpress/zipball/efde685d6de3b1f90006ccd9dd7074334e0d7c5e",
+                "reference": "efde685d6de3b1f90006ccd9dd7074334e0d7c5e",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.4"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Daniel Duersteler",
+                    "email": "daniel.duersteler@xsite.ch",
+                    "homepage": "http://www.xsite.ch",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Extension classes for PHP's PDO class with convinience methods",
+            "homepage": "http://www.xsite.ch",
+            "keywords": [
+                "database",
+                "pdo",
+                "php"
+            ],
+            "support": {
+                "issues": "https://github.com/dduers/pdo-xpress/issues",
+                "source": "https://github.com/dduers/pdo-xpress/tree/1.0.1"
+            },
+            "time": "2021-09-28T00:34:03+00:00"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "stable",
+    "stability-flags": [],
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": [],
+    "platform-dev": [],
+    "plugin-api-version": "2.1.0"
+}
