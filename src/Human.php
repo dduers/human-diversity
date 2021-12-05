@@ -1186,6 +1186,23 @@ class Human
     }
 
     /**
+     * get a random avatar picture
+     * @return string picture url
+     */
+    public function getAvatarImage(): string
+    {
+        if (!random_int(0, 99)) {
+            $_gender = 'lego';
+            $_random_number = (string)random_int(0, 9);
+        } else {
+            $_gender = $this->getGender() === 'female' ? 'women' : 'men';
+            $_random_number = (string)random_int(0, 99);
+        }
+
+        return '<img width="128" height="128" src="http://randomuser.me/api/portraits/'.$_gender.'/'.$_random_number.'.jpg" />';
+    }
+
+    /**
      * get svg full body image depending on human properties
      * @return string svg image code
      */

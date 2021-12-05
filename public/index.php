@@ -50,7 +50,9 @@ foreach ($humans as $human1) {
     echo 
         '<h3>Human #'.$i.'</h3>
         <table class="table table-bordered mb-5">
+        
             <tr class="'.($human1->getGender() === 'female' ? 'female' : 'male').'"><td><b>Name</b></td><td colspan="2">'.$human1->getName().'</td></tr>
+            <tr><td class="property">Avatar</td><td colspan="2">'.$human1->getAvatarImage().'</td></tr>
             <tr><td class="property">Gender</td><td colspan="2">'.$human1->getGender().'</td></tr>
             <tr><td class="property">Birthday</td><td colspan="2">'.$human1->getBirthday().' ('.$human1->getZodiac().')</td></tr>
             <tr><td class="property">Age</td><td colspan="2">'.$human1->getAgeInYears().' years</td></tr>
@@ -63,6 +65,7 @@ foreach ($humans as $human1) {
             <tr><td class="property">Hair-Color</td><td class="color" style="background-color:'.$human1->getHairColor().';"></td><td>'.$human1->getHairColor().'</td></tr>
             <tr><td class="property">Skin-Color</td><td class="color" style="background-color:'.$human1->getSkinColor().';"></td><td>'.$human1->getSkinColor().'</td></tr>
             <tr><td class="property">Picture</td><td colspan="2">'.$human1->getFullBodyImage().'</td></tr>
+            
         </table>';
 }
 
