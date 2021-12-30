@@ -24,10 +24,8 @@ $softskills = $softskills->selectFetchAll([], ['name']);
 $names = new Name($_DBC);
 $names_female = $names->getFemaleNames([], ['name']);
 $names_male = $names->getMaleNames([], ['name']);
-
 $humans = [];
 for ($i = 0; $i < ($_GET['count'] ?? 0); $i++) {
-
     $color = [
         $colors[array_rand($colors)]['name'],
         $colors[array_rand($colors)]['name'],
@@ -46,14 +44,13 @@ for ($i = 0; $i < ($_GET['count'] ?? 0); $i++) {
     $gender = $genders[array_rand($genders)]['name'];
     $name = $gender === 'female' ? $name = $names_female[array_rand($names_female)]['name'] : $name = $names_male[array_rand($names_male)]['name'];
     $size = Human::createRandomNumber(80, 210);
-    $weight = Human::createRandomNumber(80, 210);
-
+    $weight = Human::createRandomNumber(5, 280);
     $human = new Human(
         $name,
         $gender,
         '2000-01-01',
         $size,
-        75,
+        $weight,
         $skill,
         $softsill,
         $color[0],
