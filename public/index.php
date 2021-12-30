@@ -9,7 +9,9 @@ use Dduers\HumanDiversity\Model\Name;
 use Dduers\HumanDiversity\Model\Skill;
 use Dduers\HumanDiversity\Model\SoftSkill;
 
-file_exists('../config/config.local.php') ? require_once '../config/config.local.php' : require_once '../config/config.php';
+if (file_exists('../config/config.local.php'))
+    require_once '../config/config.local.php';
+else require_once '../config/config.php';
 
 $colors = new Color($_DBC);
 $colors = $colors->selectFetchAll([], ['name']);
