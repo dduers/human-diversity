@@ -63,7 +63,7 @@ class Human
      * create a random birth date YYYY-MM-DD
      * @return string random birth date
      */
-    static private function createRandomBirthday(): string
+    static function createRandomBirthday(): string
     {
         $day = rand(1, 28);
         $month = rand(1, 12);
