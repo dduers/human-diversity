@@ -9,7 +9,7 @@ use Dduers\HumanDiversity\Model\Name;
 use Dduers\HumanDiversity\Model\Skill;
 use Dduers\HumanDiversity\Model\SoftSkill;
 
-require_once '../config/config.php';
+file_exists('../config/config.local.php') ? require_once '../config/config.local.php' : require_once '../config/config.php';
 
 $colors = new Color($_DBC);
 $colors = $colors->selectFetchAll([], ['name']);

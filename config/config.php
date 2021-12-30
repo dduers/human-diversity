@@ -7,11 +7,11 @@ use Dduers\PDOXpress\PDOXpressConnection;
 require_once '../vendor/autoload.php';
 
 $_CONFIG = [
-    'database_server' => 'localhost',
+    'database_server' => 'danield4.mysql.db.internal',
     'database_port' => '3306',
     'database_name' => 'danield4_humdiv',
-    'database_user' => 'root',
-    'database_password' => '',
+    'database_user' => 'danield4_humdiv',
+    'database_password' => 'of7eXLNndHS6x9mB9!op',
 ];
 
 if (isset($_GET['count'])) {
