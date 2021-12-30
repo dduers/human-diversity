@@ -1,15 +1,15 @@
 <?php
+
 declare(strict_types=1);
 
 namespace Dduers\HumanDiversity;
 
 use DateTime;
-use Exception;
 
 /**
  * this describes a human beeing
  */
-class Human 
+class Human
 {
     private string $name;
     private string $gender;
@@ -22,20 +22,6 @@ class Human
     private array $skills;
     private array $softSkills;
 
-    private const MAX_BODY_SIZE = 250;
-    private const MIN_BODY_SIZE = 50;
-    private const MAX_WEIGHT = 180;
-    private const MIN_WEIGHT = 3;
-
-    private array $possibleGenders = [];
-    private array $possibleFemaleNames = [];
-    private array $possibleMaleNames = [];
-    private array $possibleSkills = [];
-    private array $possibleSkinColors = [];
-    private array $possibleHairColors = [];
-    private array $possibleEyeColors = [];
-    private array $possibleSoftSkills = [];
-    
     /**
      * human class constructor
      * @param string $name name
@@ -50,75 +36,26 @@ class Human
      * @param string (optional) $skinColor 
      */
     function __construct(
-        ?string $name = NULL, 
-        ?string $gender = NULL, 
-        ?string $birthday = NULL, 
-        ?int $sizeCentimeters = NULL, 
-        ?int $weightKilograms = NULL, 
+        ?string $name = NULL,
+        ?string $gender = NULL,
+        ?string $birthday = NULL,
+        ?int $sizeCentimeters = NULL,
+        ?int $weightKilograms = NULL,
         ?array $skills = NULL,
         ?array $softSkills = NULL,
-        ?string $eyeColor = NULL, 
-        ?string $hairColor = NULL, 
+        ?string $eyeColor = NULL,
+        ?string $hairColor = NULL,
         ?string $skinColor = NULL
     ) {
-        
-
-        if (!$gender) {
-            $gender = $this->getRandomGender();
-        }
-        $this->gender = $gender;
-
-        if (!$name) {
-            switch ($this->gender) {
-                case 'male':
-                    $name = $this->getRandomMaleName();
-                    break;
-                
-                case 'female':
-                    $name = $this->getRandomFemaleName();
-                    break;
-            }
-        }
         $this->name = $name;
-
-        if (!$birthday) {
-            $birthday = $this->createRandomBirthday();
-        } 
-        $this->birthday = new DateTime($birthday);
-
-        if (!$sizeCentimeters) {
-            $sizeCentimeters = $this->createRandomNumber(self::MIN_BODY_SIZE, self::MAX_BODY_SIZE);
-        }
+        $this->gender = $gender;
+        $this->birthday = $birthday;
         $this->sizeCentimeters = $sizeCentimeters;
-
-        if (!$weightKilograms) {
-            $weightKilograms = $this->createRandomNumber(self::MIN_WEIGHT, self::MAX_WEIGHT);
-        }
         $this->weightKilograms = $weightKilograms;
-
-        if (!$skills) {
-            $skills = $this->getRandomSkills();
-        }
         $this->skills = $skills;
-
-        if (!$softSkills) {
-            $softSkills = $this->getRandomSoftSkills();
-        }
         $this->softSkills = $softSkills;
-
-        if (!$eyeColor) {
-            $eyeColor = $this->getRandomEyeColor();
-        }
         $this->eyeColor = $eyeColor;
-
-        if (!$hairColor) {
-            $hairColor = $this->getRandomHairColor();
-        }
         $this->hairColor = $hairColor;
-
-        if (!$skinColor) {
-            $skinColor = $this->getRandomSkinColor();
-        }
         $this->skinColor = $skinColor;
     }
 
@@ -126,13 +63,13 @@ class Human
      * create a random birth date YYYY-MM-DD
      * @return string random birth date
      */
-    private function createRandomBirthday(): string
+    static private function createRandomBirthday(): string
     {
         $day = rand(1, 28);
         $month = rand(1, 12);
         $maxYear = date('Y') - 1;
         $year = rand(1920, $maxYear);
-        return $year.'-'.$month.'-'.$day;
+        return $year . '-' . $month . '-' . $day;
     }
 
     /**
@@ -148,9 +85,9 @@ class Human
      * create random number
      * @param int $min minimum number
      * @param int $max maximum number
-     * @return string html hex color code
+     * @return int html hex color code
      */
-    private function createRandomNumber(int $min, int $max): int
+    static function createRandomNumber(int $min, int $max): int
     {
         return rand($min, $max);
     }
@@ -216,24 +153,6 @@ class Human
     }
 
     /**
-     * get a random hair color
-     * @return string css color name
-     */
-    private function getRandomHairColor(): string
-    {
-        return $this->possibleHairColors[rand(0, count($this->possibleHairColors) - 1)];
-    }
-
-    /**
-     * set possible hair colors
-     * @param array $hairColors
-     */
-    private function setPossibleHairColors(array $hairColors)
-    {
-        $this->possibleHairColors = $hairColors;
-    }
-
-    /**
      * get a random skin color
      * @return string css color name
      */
@@ -265,7 +184,7 @@ class Human
             $_random_number = (string)random_int(0, 99);
         }
 
-        return '<img width="128" height="128" src="http://randomuser.me/api/portraits/'.$_gender.'/'.$_random_number.'.jpg" />';
+        return '<img width="128" height="128" src="http://randomuser.me/api/portraits/' . $_gender . '/' . $_random_number . '.jpg" />';
     }
 
     /**
@@ -280,7 +199,7 @@ class Human
         $humanSizePixels = $humanSize * 2;
         $bodyMassIndexPixels = $bodyMassIndex / 30;
 
-        $proportions = round($humanSizePixels / 11); 
+        $proportions = round($humanSizePixels / 11);
         $hairSizePixels = $proportions * 1;
         $headSizePixels = $proportions * 1;
         $bodySizePixels = $proportions * 4;
@@ -289,95 +208,95 @@ class Human
         $armsAndLegsThicknessPixels = round($bodyMassIndexPixels * 10);
 
         $svg = '
-            <svg height="'.$humanSizePixels.'" width="100%">
+            <svg height="' . $humanSizePixels . '" width="100%">
                 
                 <!-- left leg -->
                 <line 
                     x1="160" 
-                    y1="'.($hairSizePixels + $headSizePixels + $bodySizePixels - $proportions).'" 
-                    x2="'.(160 + $proportions).'" 
-                    y2="'.($hairSizePixels + $headSizePixels + $bodySizePixels + $legsSizePixels).'" 
-                    stroke="'.$this->skinColor.'" 
-                    stroke-width="'.$armsAndLegsThicknessPixels.'" 
+                    y1="' . ($hairSizePixels + $headSizePixels + $bodySizePixels - $proportions) . '" 
+                    x2="' . (160 + $proportions) . '" 
+                    y2="' . ($hairSizePixels + $headSizePixels + $bodySizePixels + $legsSizePixels) . '" 
+                    stroke="' . $this->skinColor . '" 
+                    stroke-width="' . $armsAndLegsThicknessPixels . '" 
                 />
                 
                 <!-- right leg -->
                 <line 
                     x1="140" 
-                    y1="'.($hairSizePixels + $headSizePixels + $bodySizePixels - $proportions).'" 
-                    x2="'.(140 - $proportions).'" 
-                    y2="'.($hairSizePixels + $headSizePixels + $bodySizePixels + $legsSizePixels).'" 
-                    stroke="'.$this->skinColor.'" 
-                    stroke-width="'.$armsAndLegsThicknessPixels.'" 
+                    y1="' . ($hairSizePixels + $headSizePixels + $bodySizePixels - $proportions) . '" 
+                    x2="' . (140 - $proportions) . '" 
+                    y2="' . ($hairSizePixels + $headSizePixels + $bodySizePixels + $legsSizePixels) . '" 
+                    stroke="' . $this->skinColor . '" 
+                    stroke-width="' . $armsAndLegsThicknessPixels . '" 
                 /> 
                 
                 <!-- right arm -->
                 <line 
-                    x1="'.(150 + $armsSizePixels).'" 
-                    y1="'.($hairSizePixels + $headSizePixels + $bodySizePixels / 2 - $armsSizePixels).'" 
+                    x1="' . (150 + $armsSizePixels) . '" 
+                    y1="' . ($hairSizePixels + $headSizePixels + $bodySizePixels / 2 - $armsSizePixels) . '" 
                     x2="150" 
-                    y2="'.($hairSizePixels + $headSizePixels + $bodySizePixels / 2).'" 
-                    stroke="'.$this->skinColor.'" 
-                    stroke-width="'.$armsAndLegsThicknessPixels.'" 
+                    y2="' . ($hairSizePixels + $headSizePixels + $bodySizePixels / 2) . '" 
+                    stroke="' . $this->skinColor . '" 
+                    stroke-width="' . $armsAndLegsThicknessPixels . '" 
                 />
                 
                 <!-- left arm -->
                 <line 
-                    x1="'.(150 - $armsSizePixels).'" 
-                    y1="'.($hairSizePixels + $headSizePixels + $bodySizePixels / 2 - $armsSizePixels).'" 
+                    x1="' . (150 - $armsSizePixels) . '" 
+                    y1="' . ($hairSizePixels + $headSizePixels + $bodySizePixels / 2 - $armsSizePixels) . '" 
                     x2="150" 
-                    y2="'.($hairSizePixels + $headSizePixels + $bodySizePixels / 2).'" 
-                    stroke="'.$this->skinColor.'" 
-                    stroke-width="'.$armsAndLegsThicknessPixels.'"
+                    y2="' . ($hairSizePixels + $headSizePixels + $bodySizePixels / 2) . '" 
+                    stroke="' . $this->skinColor . '" 
+                    stroke-width="' . $armsAndLegsThicknessPixels . '"
                 />
                 
                 <!-- body -->
                 <ellipse 
                     cx="150" 
-                    cy="'.($bodySizePixels / 2 + $hairSizePixels + $headSizePixels).'" 
-                    rx="'.(round($bodySizePixels / 4) * $bodyMassIndexPixels).'" 
-                    ry="'.($bodySizePixels / 2).'" 
+                    cy="' . ($bodySizePixels / 2 + $hairSizePixels + $headSizePixels) . '" 
+                    rx="' . (round($bodySizePixels / 4) * $bodyMassIndexPixels) . '" 
+                    ry="' . ($bodySizePixels / 2) . '" 
                     stroke="black" 
                     stroke-width="1" 
-                    fill="'.$this->skinColor.'" 
+                    fill="' . $this->skinColor . '" 
                 />
 
                 <!-- head -->
                 <circle 
                     cx="150" 
-                    cy="'.($headSizePixels / 2 + $hairSizePixels).'" 
-                    r="'.($headSizePixels / 2).'" 
+                    cy="' . ($headSizePixels / 2 + $hairSizePixels) . '" 
+                    r="' . ($headSizePixels / 2) . '" 
                     stroke="black" 
                     stroke-width="1" 
-                    fill="'.$this->skinColor.'" 
+                    fill="' . $this->skinColor . '" 
                 />
 
                 <!-- left eye -->
                 <ellipse 
                     cx="135" 
-                    cy="'.(5 + $hairSizePixels).'" 
+                    cy="' . (5 + $hairSizePixels) . '" 
                     rx="8" 
                     ry="4" 
                     stroke="black" 
                     stroke-width="1" 
-                    fill="'.$this->eyeColor.'" 
+                    fill="' . $this->eyeColor . '" 
                 />
 
                 <!-- right eye -->
                 <ellipse 
                     cx="165" 
-                    cy="'.(5 + $hairSizePixels).'" 
+                    cy="' . (5 + $hairSizePixels) . '" 
                     rx="8" 
                     ry="4" 
                     stroke="black" 
                     stroke-width="1" 
-                    fill="'.$this->eyeColor.'" 
+                    fill="' . $this->eyeColor . '" 
                 />
 
                 <!-- mouth -->
                 <ellipse 
                     cx="150" 
-                    cy="'.(25 + $hairSizePixels).'" 
+                    cy="' . (25 + $hairSizePixels) . '" 
                     rx="15" 
                     ry="7" 
                     stroke="black" 
@@ -387,10 +306,10 @@ class Human
 
                 <!-- hair -->
                 <path 
-                    d="M208,'.$hairSizePixels.' a30,30 0 1,0 -115,0" 
+                    d="M208,' . $hairSizePixels . ' a30,30 0 1,0 -115,0" 
                     stroke="black" 
                     stroke-width="1" 
-                    fill="'.$this->hairColor.'" 
+                    fill="' . $this->hairColor . '" 
                 />
 
             </svg>
@@ -407,7 +326,7 @@ class Human
     {
         $dxa = substr($this->birthday->format('Y-m-d'), 5);
         $uy = 0;
-        foreach([
+        foreach ([
             'Aquarius' => 20,
             'Pisces' => 19,
             'Aries' => 20,
@@ -421,10 +340,10 @@ class Human
             'Sagittarius' => 22,
             'Capricorn' => 21
         ] as $k => $v) {
-            if ($dxa > (++$uy < 10 ? '0' : '')."$uy-$v") {
+            if ($dxa > (++$uy < 10 ? '0' : '') . "$uy-$v") {
                 $zodiac = $k;
             }
-        } 
+        }
         return $zodiac ?? 'Capricorn';
     }
 

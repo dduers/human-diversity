@@ -45,12 +45,14 @@ for ($i = 0; $i < ($_GET['count'] ?? 0); $i++) {
     ];
     $gender = $genders[array_rand($genders)]['name'];
     $name = $gender === 'female' ? $name = $names_female[array_rand($names_female)]['name'] : $name = $names_male[array_rand($names_male)]['name'];
+    $size = Human::createRandomNumber(80, 210);
+    $weight = Human::createRandomNumber(80, 210);
 
     $human = new Human(
         $name,
         $gender,
         '2000-01-01',
-        170,
+        $size,
         75,
         $skill,
         $softsill,
