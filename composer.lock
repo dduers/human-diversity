@@ -4,57 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "2940545fdf28f3e83199692e100072ba",
-    "packages": [
-        {
-            "name": "dduers/pdo-xpress",
-            "version": "3.0.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/dduers/pdo-xpress.git",
-                "reference": "91d60f6c79a55f4276f95ca9c44228de7500b525"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/dduers/pdo-xpress/zipball/91d60f6c79a55f4276f95ca9c44228de7500b525",
-                "reference": "91d60f6c79a55f4276f95ca9c44228de7500b525",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=7.4"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Daniel Duersteler",
-                    "email": "daniel.duersteler@gmail.com",
-                    "homepage": "http://www.xsite.ch",
-                    "role": "Developer"
-                }
-            ],
-            "description": "Extension classes for PHP's PDO class with convinience methods and datamodel class",
-            "homepage": "https://github.com/dduers/pdo-xpress",
-            "keywords": [
-                "database",
-                "pdo",
-                "php"
-            ],
-            "support": {
-                "issues": "https://github.com/dduers/pdo-xpress/issues",
-                "source": "https://github.com/dduers/pdo-xpress/tree/3.0.0"
-            },
-            "time": "2021-12-30T20:06:27+00:00"
-        }
-    ],
+    "content-hash": "2799c2a22da4e80dedfb854ed72df4e1",
+    "packages": [],
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "stable",
