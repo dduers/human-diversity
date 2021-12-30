@@ -4,24 +4,24 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "4efef23f7315fa33e4d6312e4b959e7c",
+    "content-hash": "2940545fdf28f3e83199692e100072ba",
     "packages": [
         {
             "name": "dduers/pdo-xpress",
-            "version": "1.0.1",
+            "version": "3.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/dduers/pdo-xpress.git",
-                "reference": "efde685d6de3b1f90006ccd9dd7074334e0d7c5e"
+                "reference": "91d60f6c79a55f4276f95ca9c44228de7500b525"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dduers/pdo-xpress/zipball/efde685d6de3b1f90006ccd9dd7074334e0d7c5e",
-                "reference": "efde685d6de3b1f90006ccd9dd7074334e0d7c5e",
+                "url": "https://api.github.com/repos/dduers/pdo-xpress/zipball/91d60f6c79a55f4276f95ca9c44228de7500b525",
+                "reference": "91d60f6c79a55f4276f95ca9c44228de7500b525",
                 "shasum": ""
             },
             "require": {
-                "php": "^7.4"
+                "php": ">=7.4"
             },
             "type": "library",
             "autoload": {
@@ -36,13 +36,13 @@
             "authors": [
                 {
                     "name": "Daniel Duersteler",
-                    "email": "daniel.duersteler@xsite.ch",
+                    "email": "daniel.duersteler@gmail.com",
                     "homepage": "http://www.xsite.ch",
                     "role": "Developer"
                 }
             ],
-            "description": "Extension classes for PHP's PDO class with convinience methods",
-            "homepage": "http://www.xsite.ch",
+            "description": "Extension classes for PHP's PDO class with convinience methods and datamodel class",
+            "homepage": "https://github.com/dduers/pdo-xpress",
             "keywords": [
                 "database",
                 "pdo",
@@ -50,9 +50,9 @@
             ],
             "support": {
                 "issues": "https://github.com/dduers/pdo-xpress/issues",
-                "source": "https://github.com/dduers/pdo-xpress/tree/1.0.1"
+                "source": "https://github.com/dduers/pdo-xpress/tree/3.0.0"
             },
-            "time": "2021-09-28T00:34:03+00:00"
+            "time": "2021-12-30T20:06:27+00:00"
         }
     ],
     "packages-dev": [],
@@ -61,7 +61,9 @@
     "stability-flags": [],
     "prefer-stable": false,
     "prefer-lowest": false,
-    "platform": [],
+    "platform": {
+        "php": ">=7.4"
+    },
     "platform-dev": [],
     "plugin-api-version": "2.1.0"
 }
