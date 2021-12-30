@@ -38,7 +38,7 @@ class Human
     function __construct(
         ?string $name = NULL,
         ?string $gender = NULL,
-        ?string $birthday = NULL,
+        ?DateTime $birthday = NULL,
         ?int $sizeCentimeters = NULL,
         ?int $weightKilograms = NULL,
         ?array $skills = NULL,
@@ -61,22 +61,22 @@ class Human
 
     /**
      * create a random birth date YYYY-MM-DD
-     * @return string random birth date
+     * @return DateTime random birth date
      */
-    static function createRandomBirthday(): string
+    static function createRandomBirthday(): DateTime
     {
         $day = rand(1, 28);
         $month = rand(1, 12);
         $maxYear = date('Y') - 1;
         $year = rand(1920, $maxYear);
-        return $year . '-' . $month . '-' . $day;
+        return new DateTime($year . '-' . $month . '-' . $day);
     }
 
     /**
      * create random html hex color code
      * @return string html hex color code
      */
-    private function createRandomColor(): string
+    static function createRandomColor(): string
     {
         return sprintf('#%06X', mt_rand(0, 0xFFFFFF));
     }
@@ -90,84 +90,6 @@ class Human
     static function createRandomNumber(int $min, int $max): int
     {
         return rand($min, $max);
-    }
-
-    /**
-     * get random skills
-     * @return array skills
-     */
-    private function getRandomSkills(): array
-    {
-        $skills = [];
-        for ($i = 0; $i < rand(2, 5); $i++) {
-            $possibleSkill = $this->possibleSkills[rand(0, count($this->possibleSkills) - 1)];
-            if (!in_array($possibleSkill, $skills)) {
-                $skills[] = $possibleSkill;
-            }
-        }
-        return $skills;
-    }
-
-    /**
-     * get random soft skills
-     * @return array soft skills
-     */
-    private function getRandomSoftSkills(): array
-    {
-        $softSkills = [];
-        for ($i = 0; $i < rand(2, 5); $i++) {
-            $possibleSoftSkill = $this->possibleSoftSkills[rand(0, count($this->possibleSoftSkills) - 1)];
-            if (!in_array($possibleSoftSkill, $softSkills)) {
-                $softSkills[] = $possibleSoftSkill;
-            }
-        }
-        return $softSkills;
-    }
-
-    /**
-     * get a random eye color
-     * @return string css color name
-     */
-    private function getRandomEyeColor(): string
-    {
-        return $this->possibleEyeColors[rand(0, count($this->possibleEyeColors) - 1)];
-    }
-
-    private function getRandomFemaleName(): string
-    {
-        return $this->possibleFemaleNames[rand(0, count($this->possibleFemaleNames) - 1)];
-    }
-
-    private function getRandomMaleName(): string
-    {
-        return $this->possibleMaleNames[rand(0, count($this->possibleMaleNames) - 1)];
-    }
-
-    /**
-     * get a random gender
-     * @return string gender 
-     */
-    private function getRandomGender(): string
-    {
-        return $this->possibleGenders[rand(0, count($this->possibleGenders) - 1)];
-    }
-
-    /**
-     * get a random skin color
-     * @return string css color name
-     */
-    private function getRandomSkinColor(): string
-    {
-        return $this->possibleSkinColors[rand(0, count($this->possibleSkinColors) - 1)];
-    }
-
-    /**
-     * set possible skin colors
-     * @param array $skinColors
-     */
-    private function setPossibleSkinColors(array $skinColors)
-    {
-        $this->possibleSkinColors = $skinColors;
     }
 
     /**
@@ -349,7 +271,7 @@ class Human
 
     /**
      * add a skill
-     * @param string possible skill name
+     * @param string skill name
      */
     public function addSkill(string $skill)
     {
@@ -359,7 +281,7 @@ class Human
 
     /**
      * add a softskill
-     * @param string possible skill name
+     * @param string skill name
      */
     public function addSoftSkill(string $softSkill)
     {
