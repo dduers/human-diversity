@@ -4,7 +4,8 @@
     "description": "Search for humans with different skills, looks and abilities",
     "type": "project",
     "require": {
-        "php": ">=7.4"
+        "php": ">=7.4",
+        "dduers/pdo-xpress": "^3.0"
     },
     "license": "MIT",
     "autoload": {
