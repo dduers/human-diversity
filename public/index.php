@@ -89,7 +89,7 @@ for ($i = 0; $i < ($_GET['count'] ?? 0); $i++) {
         </form>
     <?php else : ?>
         <p>The characters listed are not actual people and purely fictional, but you might meet human beeings alike.</p>
-        <p>Listen to your stereo, don\'t put them in the microwave!</p>
+        <p>Listen to your stereo, don't put them in the microwave!</p>
         <p class="mb-5">Hint: The full body pictures are just scratching the surface and are rather schematic.</p>
     <?php
         foreach ($humans as $human1)
