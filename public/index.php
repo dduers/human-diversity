@@ -31,16 +31,6 @@ for ($i = 0; $i < ($_GET['count'] ?? 0); $i++) {
         $colors[array_rand($colors)]['name'],
         $colors[array_rand($colors)]['name']
     ];
-    $skill = [
-        $skills[array_rand($skills)]['name'],
-        $skills[array_rand($skills)]['name'],
-        $skills[array_rand($skills)]['name']
-    ];
-    $softsill = [
-        $softskills[array_rand($softskills)]['name'],
-        $softskills[array_rand($softskills)]['name'],
-        $softskills[array_rand($softskills)]['name']
-    ];
     $gender = $genders[array_rand($genders)]['name'];
     $name = $gender === 'female' ? $name = $names_female[array_rand($names_female)]['name'] : $name = $names_male[array_rand($names_male)]['name'];
     $size = Human::createRandomNumber(80, 210);
@@ -52,12 +42,16 @@ for ($i = 0; $i < ($_GET['count'] ?? 0); $i++) {
         $birthdate,
         $size,
         $weight,
-        $skill,
-        $softsill,
+        NULL, // skills
+        NULL, //softskills
         $color[0],
         $color[1],
         $color[2],
     );
+    for ($j = 0; $j < rand(2, 5); $j++)
+        $human->addSkill($skills[array_rand($skills)]['name']);
+    for ($j = 0; $j < rand(2, 5); $j++)
+        $human->addSoftSkill($softskills[array_rand($softskills)]['name']);
     $humans[] = $human;
 }
 ?>

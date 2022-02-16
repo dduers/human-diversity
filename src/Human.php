@@ -19,8 +19,8 @@ class Human
     private string $eyeColor;
     private string $hairColor;
     private string $skinColor;
-    private array $skills;
-    private array $softSkills;
+    private ?array $skills;
+    private ?array $softSkills;
 
     /**
      * human class constructor
@@ -275,7 +275,7 @@ class Human
      */
     public function addSkill(string $skill)
     {
-        if (!in_array($skill, $this->skills))
+        if (!in_array($skill, $this->skills ?? []))
             $this->skills[] = $skill;
     }
 
@@ -285,7 +285,7 @@ class Human
      */
     public function addSoftSkill(string $softSkill)
     {
-        if (!in_array($softSkill, $this->softSkills))
+        if (!in_array($softSkill, $this->softSkills ?? []))
             $this->softSkills[] = $softSkill;
     }
 
