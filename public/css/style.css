@@ -1,14 +1,21 @@
 .female {
     background-color: pink !important;
 }
+
 .male {
     background-color: lightblue !important;
 }
+
 .property {
     width: 200px;
     font-weight: bold;
-    background-color:#efefef;
+    background-color: #efefef;
 }
+
 .color {
-    width:50px;
+    width: 50px;
+}
+
+.highlight {
+    background-color: lightyellow !important;
 }

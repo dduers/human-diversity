@@ -97,8 +97,8 @@ for ($i = 0; $i < ($_GET['count'] ?? 0); $i++) {
                 <tr><td class="property">Age</td><td colspan="2">' . $human1->getAgeYears() . ' years</td></tr>
                 <tr><td class="property">Size</td><td colspan="2">' . ($human1->getSizeCentimeters() / 100) . ' meters</td></tr>
                 <tr><td class="property">Weight</td><td colspan="2">' . $human1->getWeightKilograms() . ' kilograms</td></tr>
-                <tr><td class="property">Skills</td><td colspan="2">' . implode(', ', $human1->getSkills()) . '</td></tr>
-                <tr><td class="property">Soft-Skills</td><td colspan="2">' . implode(', ', $human1->getSoftSkills()) . '</td></tr>
+                <tr><td class="property highlight">Skills</td><td class="highlight" colspan="2">' . implode(', ', $human1->getSkills()) . '</td></tr>
+                <tr><td class="property highlight">Soft-Skills</td><td class="highlight" colspan="2">' . implode(', ', $human1->getSoftSkills()) . '</td></tr>
                 <tr><td class="property">Body-Mass-Index</td><td colspan="2">' . $human1->getBodyMassIndex() . '</td></tr>
                 <tr><td class="property">Eye-Color</td><td class="color" style="background-color:' . $human1->getEyeColor() . ';"></td><td>' . $human1->getEyeColor() . '</td></tr>
                 <tr><td class="property">Hair-Color</td><td class="color" style="background-color:' . $human1->getHairColor() . ';"></td><td>' . $human1->getHairColor() . '</td></tr>
