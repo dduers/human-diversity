@@ -35,7 +35,7 @@ final class Name extends Mapper
     function getMaleNames(string $order_field_ = 'name', string $order_direction_ = 'ASC'): array
     {
         $_result = [];
-        foreach ($this->find(['is_male' => 1], ['order' => $order_field_ . ' ' . $order_direction_]) as $_r)
+        foreach ($this->find(['is_male = 1'], ['order' => $order_field_ . ' ' . $order_direction_]) as $_r)
             $_result[] = $_r->cast();
         return $_result;
     }
@@ -43,7 +43,7 @@ final class Name extends Mapper
     function getFemaleNames(string $order_field_ = 'name', string $order_direction_ = 'ASC'): array
     {
         $_result = [];
-        foreach ($this->find(['is_female' => 1], ['order' => $order_field_ . ' ' . $order_direction_]) as $_r)
+        foreach ($this->find(['is_female = 1'], ['order' => $order_field_ . ' ' . $order_direction_]) as $_r)
             $_result[] = $_r->cast();
         return $_result;
     }
