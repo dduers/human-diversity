@@ -122,9 +122,9 @@ class Human
                 <!-- right arm -->
                 <line 
                     x1="' . (150 + $armsSizePixels) . '" 
-                    y1="' . ($hairSizePixels + $headSizePixels + $bodySizePixels / 2 - $armsSizePixels) . '" 
+                    y1="' . str_replace(',', '.', (string)($hairSizePixels + $headSizePixels + $bodySizePixels / 2 - $armsSizePixels)) . '" 
                     x2="150" 
-                    y2="' . ($hairSizePixels + $headSizePixels + $bodySizePixels / 2) . '" 
+                    y2="' . str_replace(',', '.', (string)($hairSizePixels + $headSizePixels + $bodySizePixels / 2)) . '" 
                     stroke="' . $this->skinColor . '" 
                     stroke-width="' . $armsAndLegsThicknessPixels . '" 
                 />
@@ -132,9 +132,9 @@ class Human
                 <!-- left arm -->
                 <line 
                     x1="' . (150 - $armsSizePixels) . '" 
-                    y1="' . ($hairSizePixels + $headSizePixels + $bodySizePixels / 2 - $armsSizePixels) . '" 
+                    y1="' . str_replace(',', '.', (string)($hairSizePixels + $headSizePixels + $bodySizePixels / 2 - $armsSizePixels)) . '" 
                     x2="150" 
-                    y2="' . ($hairSizePixels + $headSizePixels + $bodySizePixels / 2) . '" 
+                    y2="' . str_replace(',', '.', (string)($hairSizePixels + $headSizePixels + $bodySizePixels / 2)) . '" 
                     stroke="' . $this->skinColor . '" 
                     stroke-width="' . $armsAndLegsThicknessPixels . '"
                 />
@@ -142,9 +142,9 @@ class Human
                 <!-- body -->
                 <ellipse 
                     cx="150" 
-                    cy="' . ($bodySizePixels / 2 + $hairSizePixels + $headSizePixels) . '" 
-                    rx="' . (round($bodySizePixels / 4) * $bodyMassIndexPixels) . '" 
-                    ry="' . ($bodySizePixels / 2) . '" 
+                    cy="' . str_replace(',', '.', (string)($bodySizePixels / 2 + $hairSizePixels + $headSizePixels)) . '" 
+                    rx="' . str_replace(',', '.', (string)(round($bodySizePixels / 4) * $bodyMassIndexPixels)) . '" 
+                    ry="' . str_replace(',', '.', (string)($bodySizePixels / 2)) . '" 
                     stroke="black" 
                     stroke-width="1" 
                     fill="' . $this->skinColor . '" 
@@ -153,8 +153,8 @@ class Human
                 <!-- head -->
                 <circle 
                     cx="150" 
-                    cy="' . ($headSizePixels / 2 + $hairSizePixels) . '" 
-                    r="' . ($headSizePixels / 2) . '" 
+                    cy="' . str_replace(',', '.', (string)($headSizePixels / 2 + $hairSizePixels)) . '" 
+                    r="' . str_replace(',', '.', (string)($headSizePixels / 2)) . '" 
                     stroke="black" 
                     stroke-width="1" 
                     fill="' . $this->skinColor . '" 
