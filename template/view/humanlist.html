@@ -1,6 +1,8 @@
-<p>The characters listed are not actual people and purely fictional, but you might meet human beeings alike.</p>
-<p>Listen to your stereo, don't put them in the microwave!</p>
-<p class="mb-5">Hint: The full body pictures are just scratching the surface and are rather schematic.</p>
+<div class="alert alert-primary mb-5" role="alert">
+    The characters listed are not actual people and purely fictional, but you might meet human beeings alike.
+    <br/>Listen to your stereo, don't put them in the microwave!
+    <br/>Hint: The full body pictures are just scratching the surface and are rather schematic.
+</div>
 
 <repeat group="{{ @VIEWVARS.humans }}" value="{{ @human }}">
     <h3>{{ @human->getName() }}</h3>
@@ -67,4 +69,4 @@
     </table>
 </repeat>
 
-<a class="btn btn-lg btn-primary mt-5" href="/home">Wanna recreation!</a>
+<a class="btn btn-lg btn-primary mt-5" href="/search">Search others!</a>

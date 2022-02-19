@@ -1,3 +1,17 @@
+body {
+    margin-top: 55px;
+}
+
+footer {
+    background: rgb(34, 193, 195);
+    background: linear-gradient(180deg, rgba(34, 193, 195, 0) 0%, rgba(253, 187, 45, 1) 100%);
+}
+
+header {
+    background: rgb(34, 193, 195);
+    background: linear-gradient(0deg, rgba(34, 193, 195, 0) 0%, rgba(253, 187, 45, 1) 100%);
+}
+
 .female {
     background-color: pink !important;
 }
