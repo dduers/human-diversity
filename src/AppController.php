@@ -47,7 +47,7 @@ class AppController extends F3App
     static function _reroute(string $ctrl_, string $lang_): void
     {
         $_f3 = Base::instance();
-        $_f3->reroute(($lang_ ? '/' . $lang_ : '') . ($lang_ ? '/' . $lang_ : '') . ($_f3->get('QUERY') ? '?' . $_f3->get('QUERY') : ''));
+        $_f3->reroute(($lang_ ? '/' . $lang_ : '') . ($ctrl_ ? '/' . $ctrl_ : '') . ($_f3->get('QUERY') ? '?' . $_f3->get('QUERY') : ''));
         return;
     }
 
