@@ -73,7 +73,7 @@ class Human
             $_random_number = (string)random_int(0, 99);
         }
 
-        return '<img width="128" height="128" src="http://randomuser.me/api/portraits/' . $_gender . '/' . $_random_number . '.jpg" />';
+        return '<img width="128" height="128" src="https://randomuser.me/api/portraits/' . $_gender . '/' . $_random_number . '.jpg" />';
     }
 
     /**
