@@ -1,0 +1,13 @@
+<body>
+    <h1>{{ @DICT.mail.register.activation.subject ?? '' }}</h1>
+    <p>{{ @DICT.mail.register.activation.text ?? '' }}</p>
+    <br/>
+    <p>
+        <a href="{{ @CONF.frontend.url }}/activation/{{ @TEMPLATE.code ?? '' }}">
+            {{ @DICT.mail.register.activation.subject ?? '' }}
+        </a>
+    </p>
+    <br/>
+    <p>_</p>
+    <p>{{ (@DICT.global.company.impress ?? '') | raw }}</p>
+</body>

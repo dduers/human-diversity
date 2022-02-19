@@ -58,40 +58,7 @@ class Human
         $this->hairColor = $hairColor;
         $this->skinColor = $skinColor;
     }
-
-    /**
-     * create a random birth date YYYY-MM-DD
-     * @return DateTime random birth date
-     */
-    static function createRandomBirthday(): DateTime
-    {
-        $day = rand(1, 28);
-        $month = rand(1, 12);
-        $maxYear = date('Y') - 1;
-        $year = rand(1920, $maxYear);
-        return new DateTime($year . '-' . $month . '-' . $day);
-    }
-
-    /**
-     * create random html hex color code
-     * @return string html hex color code
-     */
-    static function createRandomColor(): string
-    {
-        return sprintf('#%06X', mt_rand(0, 0xFFFFFF));
-    }
-
-    /**
-     * create random number
-     * @param int $min minimum number
-     * @param int $max maximum number
-     * @return int html hex color code
-     */
-    static function createRandomNumber(int $min, int $max): int
-    {
-        return rand($min, $max);
-    }
-
+    
     /**
      * get a random avatar picture
      * @return string picture url

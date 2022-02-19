@@ -1,0 +1,13 @@
+<body>
+    <h1>{{ @DICT.mail.recoveryrequest.subject ?? '' }}</h1>
+    <p>{{ @DICT.mail.recoveryrequest.text ?? '' }}</p>
+    <br/>
+    <p>
+        <a href="{{ @CONF.frontend.url }}/recovery-reset/{{ @TEMPLATE.code ?? '' }}">
+            {{ @DICT.mail.recoveryrequest.subject ?? '' }}
+        </a>
+    </p>
+    <br/>
+    <p>_</p>
+    <p>{{ (@DICT.global.company.impress ?? '') | raw }}</p>
+</body>
