@@ -46,6 +46,18 @@ final class User extends Mapper
     }
 
     /**
+     * check if a email address is in use for login id within the application
+     * @param string $email_
+     * @return bool
+     */
+    public function isEmailUsed(string $email_): bool
+    {
+        //$this->load(['email = ? OR email_unverified = ?', $email_, $email_]);
+        $this->load(['email = ?', $email_]);
+        return !$this->dry();
+    }
+
+    /**
      * register a user
      * @param array $data_
      * @return array|NULL

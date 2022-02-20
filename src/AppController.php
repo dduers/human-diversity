@@ -57,6 +57,8 @@ class AppController extends F3App
      */
     static function _onerror(Base $f3_): bool
     {
+        if ($f3_->get('ERROR.code') === 404 && !$f3_->get('PARAMS.ctrl'))
+            self::_reroute('home');
         $_message = $f3_->get('ERROR.code') === 500
             ? ($f3_->get('DEBUG')
                 ? $f3_->get('ERROR.text')

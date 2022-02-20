@@ -20,24 +20,20 @@ final class login extends AppController
         $_user = new User();
 
         if (!$_user->userExists((string)self::vars('POST.email'))) {
-            self::_message('danger', 'Login failed.');
+            self::_message('danger', self::vars('DICT.message.login.fail.general'));
             return;
         }
-
         if (!$_user->isAccountActivated((string)self::vars('POST.email'))) {
-            self::_message('danger', 'This account must be activated first.');
+            self::_message('danger', self::vars('DICT.message.login.fail.activation'));
             return;
         }
-
         $_token = $_auth_service::login((string)self::vars('POST.email'), (string)self::vars('POST.password'), (bool)(self::vars('POST.stayloggedin') ?? false));
         if (!$_token) {
-            self::_message('danger', 'Login failed.');
+            self::_message('danger', self::vars('DICT.message.login.fail.general'));
             return;
         }
 
-        //$_user_record = $_user->getUserByEmailAddress((string)self::vars('POST.email'), true);
-        self::_message('success', 'You were successfully logged in.');
-
+        self::_message('success', self::vars('DICT.message.login.success'));
         self::_reroute('home');
         return;
     }
