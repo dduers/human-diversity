@@ -150,4 +150,19 @@ final class User extends Mapper
             return false;
         return $this->get('is_disabled') ? false : true;
     }
+
+    /**
+     * set last login date for a user
+     * @param int $id_user_
+     * @return bool
+     */
+    public function setLastLoginDate(int $id_user_): bool
+    {
+        $this->load(['id = ?', $id_user_]);
+        if ($this->dry())
+            return false;
+        $this->set('date_lastlogin', date('Y-m-d H:i:s'));
+        $this->update();
+        return true;
+    }
 }
