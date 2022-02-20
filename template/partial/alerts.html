@@ -1,0 +1,11 @@
+<check if="{{ isset(@SESSION._message) && count(@SESSION._message) > 0 }}">
+    <div class="row">
+        <div class="col-md-12">
+            <repeat group="{{ @SESSION._message }}" key="{{ @key }}" value="{{ @value }}">
+                <div role="alert" class="alert alert-{{ @value.type }} alert-dismissible fade show">{{ @value.text | raw }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                </div>
+            </repeat>
+        </div>
+    </div>
+</check>

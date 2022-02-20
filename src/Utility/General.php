@@ -40,4 +40,13 @@ final class General
         $year = self::createRandomNumber(1920, $maxYear);
         return new DateTime($year . '-' . $month . '-' . $day);
     }
+
+    /**
+     * create a random token
+     * @return string the token
+     */
+    static function createToken(int $bytes_ = 64): string
+    {
+        return bin2hex(random_bytes($bytes_));
+    }
 }

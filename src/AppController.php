@@ -23,17 +23,16 @@ class AppController extends F3App
 
     /**
      * create api response message body
-     * @param string $result_ success | warning | danger
+     * @param string $type_ success | warning | danger | info | primary | secondary
      * @param string $message_
-     * @param array $data_
      * @return void
      */
-    static function _message(string $result_, string $message_ = '', array $data_ = []): void
+    static function _message(string $type_ = 'info', string $text_ = ''): void
     {
-        self::body([
-            'result' => $result_,
-            'message' => $message_,
-            'data' => $data_
+        $_f3 = Base::instance();
+        $_f3->push('SESSION._message', [
+            'type' => $type_,
+            'text' => $text_,
         ]);
     }
 
@@ -44,7 +43,7 @@ class AppController extends F3App
      * @param string $id_ ressource id
      * @return void
      */
-    static function _reroute(string $ctrl_, string $lang_): void
+    static function _reroute(string $ctrl_, string $lang_ = ''): void
     {
         $_f3 = Base::instance();
         $_f3->reroute(($lang_ ? '/' . $lang_ : '') . ($ctrl_ ? '/' . $ctrl_ : '') . ($_f3->get('QUERY') ? '?' . $_f3->get('QUERY') : ''));
@@ -63,11 +62,7 @@ class AppController extends F3App
                 ? $f3_->get('ERROR.text')
                 : 'Internal Server Error'
             ) : $f3_->get('ERROR.text');
-        self::_message('error', $_message, [
-            'result' => 'error',
-            'code' => $f3_->get('ERROR.code'),
-            'message' => $_message
-        ]);
+        self::_message('danger', $_message);
         return true;
     }
 }

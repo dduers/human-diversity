@@ -18,6 +18,7 @@
     <include href="{{ 'partial/navbar.html' }}" if="{{ file_exists(@UI.'partial/navbar.html') }}" />
     <include href="{{ 'partial/header.html' }}" if="{{ file_exists(@UI.'partial/header.html') }}" />
     <main class="container mt-5 mb-5">
+        <include href="{{ 'partial/alerts.html' }}" if="{{ file_exists(@UI.'partial/alerts.html') }}" />
         <include href="{{ 'view/'.(@PARAMS.ctrl ?? '').'.html' }}" if="{{ file_exists(@UI.'view/'.(@PARAMS.ctrl ?? '').'.html') }}" />
     </main>
     <include href="{{ 'partial/footer.html' }}" if="{{ file_exists(@UI.'partial/footer.html') }}" />
