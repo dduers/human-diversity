@@ -9,7 +9,7 @@
         <input name="password" type="password" class="form-control" id="password" placeholder="Password" required>
         <label for="password">Password</label>
     </div>
-    <input type="hidden" name="_token" value="{{ @SESSION._token }}">
+    <input type="hidden" name="_token" value="{{ @SESSION._token ?? '' }}">
     <button type="submit" class="btn btn-lg btn-primary">Login</button>
 </form>
 <p class="mt-5"><a href="/register">New here?</a> | <a href="/recovery">Forgot password?</a></p>

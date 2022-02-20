@@ -17,6 +17,6 @@
         <input name="password_verify" type="password" class="form-control" id="password_verify" placeholder="Verify password" required>
         <label for="password_verify">Verify password</label>
     </div>
-    <input type="hidden" name="_token" value="{{ @SESSION._token }}">
+    <input type="hidden" name="_token" value="{{ @SESSION._token ?? '' }}">
     <button type="submit" class="btn btn-lg btn-primary">Register</button>
 </form>
