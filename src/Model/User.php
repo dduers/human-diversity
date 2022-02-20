@@ -165,4 +165,17 @@ final class User extends Mapper
         $this->update();
         return true;
     }
+
+    /**
+     * get activated user account by email address
+     * @param string $email_address_
+     * @return array|null casted record as assoc array
+     */
+    public function getActivatedUserByEmailAddress(string $email_address_)
+    {
+        $this->load(['email = ? AND is_disabled = 0', $email_address_]);
+        if ($this->dry())
+            return NULL;
+        return $this->cast();
+    }
 }
