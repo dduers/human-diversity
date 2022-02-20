@@ -137,4 +137,17 @@ final class User extends Mapper
         $this->update();
         return true;
     }
+
+    /**
+     * check if account is activated
+     * @param string $email_
+     * @return bool
+     */
+    public function isAccountActivated(string $email_): bool
+    {
+        $this->load(['email = ?', $email_]);
+        if ($this->dry())
+            return false;
+        return $this->get('is_disabled') ? false : true;
+    }
 }

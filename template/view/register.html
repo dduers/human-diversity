@@ -13,6 +13,10 @@
         <input name="password" type="password" class="form-control" id="password" placeholder="Password" required>
         <label for="password">Password</label>
     </div>
+    <div class="form-floating mb-3">
+        <input name="password_verify" type="password" class="form-control" id="password_verify" placeholder="Verify password" required>
+        <label for="password_verify">Verify password</label>
+    </div>
     <input type="hidden" name="_token" value="{{ @SESSION._token }}">
     <button type="submit" class="btn btn-lg btn-primary">Register</button>
 </form>

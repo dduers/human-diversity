@@ -26,22 +26,25 @@ final class register extends AppController
             self::_message('danger', self::vars('DICT.message.register.fail.emailused'));
             return;
         }
+
         if (!$_utility_general->isComplexPassword(self::vars('POST.password'))) {
             self::_message('danger', self::vars('DICT.message.register.fail.passwordcomplexity'));
             return;
         }
+
         if (self::vars('POST.password') !== self::vars('POST.password_verify')) {
             self::_message('danger', self::vars('DICT.message.register.fail.passwordmismatch'));
             return;
         }
+
         $_user_record = $_model_user->registerUser(self::vars('POST'));
         if (!$_user_record) {
             self::_message('danger', self::vars('DICT.message.register.fail.general'));
             return;
         }
-        self::_message('success', self::vars('DICT.message.register.success'));
 
         self::vars('TEMPLATE.code', $_user_record['code_activation']);
+
         $_service_smtp::sendMail(
             [
                 $_user_record['email'] => $_user_record['username']
@@ -50,7 +53,9 @@ final class register extends AppController
             Template::instance()->render('mail/register.html')
         );
 
+        self::_message('success', self::vars('DICT.message.register.success'));
         self::_reroute('login');
+        
         return;
     }
 }
