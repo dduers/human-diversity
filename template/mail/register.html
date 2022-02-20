@@ -3,7 +3,7 @@
     <p>{{ @DICT.mail.register.activation.text ?? '' }}</p>
     <br/>
     <p>
-        <a href="{{ @CONF.frontend.url }}/activation/{{ @TEMPLATE.code ?? '' }}">
+        <a href="{{ @CONF.frontend.url }}/activation?code={{ @VIEWVARS.code ?? '' }}">
             {{ @DICT.mail.register.activation.subject ?? '' }}
         </a>
     </p>

@@ -43,7 +43,7 @@ final class register extends AppController
             return;
         }
 
-        self::vars('TEMPLATE.code', $_user_record['code_activation']);
+        self::vars('VIEWVARS.code', $_user_record['code_activation']);
 
         $_service_smtp::sendMail(
             [
