@@ -1,2 +1,66 @@
-<h3>Start looking for humans ...</h3>
-<a href="/search" class="btn btn-lg btn-danger mt-3" type="submit">Search</a>
+<repeat group="{{ @VIEWVARS.humans }}" value="{{ @human }}">
+    <h3>{{ @human->getName() }}</h3>
+    <table class="table table-bordered">
+        <tr class="{{ @human->getGender() === 'female' ? 'female' : 'male' }}">
+            <td><b>Name</b></td>
+            <td colspan="2">{{ @human->getName() }}</td>
+        </tr>
+        <tr>
+            <td class="property">Avatar</td>
+            <td colspan="2">{{ @human->getAvatarImage() }}</td>
+        </tr>
+        <tr>
+            <td class="property">Gender</td>
+            <td colspan="2">{{ @human->getGender() }}</td>
+        </tr>
+        <tr>
+            <td class="property">Birthday</td>
+            <td colspan="2">{{ @human->getBirthday() }} ({{ @human->getZodiac() }})</td>
+        </tr>
+        <tr>
+            <td class="property">Age</td>
+            <td colspan="2">{{ @human->getAgeYears() }} years</td>
+        </tr>
+        <tr>
+            <td class="property">Size</td>
+            <td colspan="2">{{ @human->getSizeCentimeters() / 100 }} meters</td>
+        </tr>
+        <tr>
+            <td class="property">Weight</td>
+            <td colspan="2">{{ @human->getWeightKilograms() }} kilograms</td>
+        </tr>
+        <tr>
+            <td class="property highlight">Skills</td>
+            <td class="highlight" colspan="2">{{ implode(', ', @human->getSkills()) }}</td>
+        </tr>
+        <tr>
+            <td class="property highlight">Soft-Skills</td>
+            <td class="highlight" colspan="2">{{ implode(', ', @human->getSoftSkills()) }}</td>
+        </tr>
+        <tr>
+            <td class="property">Body-Mass-Index</td>
+            <td colspan="2">{{ @human->getBodyMassIndex() }}</td>
+        </tr>
+        <tr>
+            <td class="property">Eye-Color</td>
+            <td class="color" style="background-color:{{ @human->getEyeColor() }};"></td>
+            <td>{{ @human->getEyeColor() }}</td>
+        </tr>
+        <tr>
+            <td class="property">Hair-Color</td>
+            <td class="color" style="background-color:{{ @human->getHairColor() }};"></td>
+            <td>{{ @human->getHairColor() }}</td>
+        </tr>
+        <tr>
+            <td class="property">Skin-Color</td>
+            <td class="color" style="background-color:{{ @human->getSkinColor() }};"></td>
+            <td>{{ @human->getSkinColor() }}</td>
+        </tr>
+        <tr>
+            <td class="property">Picture</td>
+            <td colspan="2">{{ @human->getFullBodyImage() }}</td>
+        </tr>
+    </table>
+</repeat>
+
+<a class="btn btn-lg btn-primary mt-5" href="/home">Show another</a>
