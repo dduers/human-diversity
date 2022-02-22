@@ -40,17 +40,23 @@
         </tr>
         <tr>
             <td class="property">Eye-Color</td>
-            <td class="color" style="background-color:{{ @human->getEyeColor() }};"></td>
+            <td class="color">
+                <div class="color-display" style="background-color:{{ @human->getEyeColor() }};"></div>
+            </td>
             <td>{{ @human->getEyeColor() }}</td>
         </tr>
         <tr>
             <td class="property">Hair-Color</td>
-            <td class="color" style="background-color:{{ @human->getHairColor() }};"></td>
+            <td class="color">
+                <div class="color-display" style="background-color:{{ @human->getHairColor() }};"></div>
+            </td>
             <td>{{ @human->getHairColor() }}</td>
         </tr>
         <tr>
             <td class="property">Skin-Color</td>
-            <td class="color" style="background-color:{{ @human->getSkinColor() }};"></td>
+            <td class="color">
+                <div class="color-display" style="background-color:{{ @human->getSkinColor() }};"></div>
+            </td>
             <td>{{ @human->getSkinColor() }}</td>
         </tr>
         <tr>

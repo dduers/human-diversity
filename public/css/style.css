@@ -38,7 +38,14 @@ footer {
 }
 
 .color {
-    width: 50px;
+    width: 40px;
+}
+
+.color-display {
+    width: 25px;
+    border-radius: 50%;
+    height: 25px;
+    border: 1px solid black;
 }
 
 .highlight {
