@@ -1,5 +1,14 @@
+html,
 body {
-    margin-top: 55px;
+    height: 100%;
+}
+
+body {
+    padding-top: 55px;
+}
+
+#page-content {
+    flex: 1 0 auto;
 }
 
 footer {
