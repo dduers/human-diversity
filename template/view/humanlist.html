@@ -5,11 +5,13 @@
 </div>
 
 <repeat group="{{ @VIEWVARS.humans }}" value="{{ @human }}">
-    <h3>{{ @human->getName() }}</h3>
-    <table class="table table-bordered mb-5">
-        <tr class="{{ @human->getGender() === 'female' ? 'female' : 'male' }}">
-            <td><b>Name</b></td>
-            <td colspan="2">{{ @human->getName() }}</td>
+    <h1>&nbsp;</h1>
+    <h1>&nbsp;</h1>
+    <table class="table">
+        <tr class="text-center {{ @human->getGender() === 'female' ? 'female' : 'male' }}">
+            <td colspan="3">
+                <h3>{{ @human->getName() }}</h3>
+            </td>
         </tr>
         <tr>
             <td class="property">Avatar</td>
@@ -63,8 +65,8 @@
             <td>{{ @human->getSkinColor() }}</td>
         </tr>
         <tr>
-            <td class="property">Picture</td>
-            <td colspan="2">{{ @human->getFullBodyImage() }}</td>
+            <td class="property border-bottom-0">Picture</td>
+            <td class="border-bottom-0" colspan="2">{{ @human->getFullBodyImage() }}</td>
         </tr>
     </table>
 </repeat>
