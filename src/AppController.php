@@ -65,6 +65,7 @@ class AppController extends F3App
                 : 'Internal Server Error'
             ) : $f3_->get('ERROR.text');
         self::_message('danger', $_message);
+        self::vars('PARAMS.ctrl', '_error');
         return true;
     }
 }
