@@ -1,9 +1,9 @@
 <repeat group="{{ @VIEWVARS.humans }}" value="{{ @human }}">
     <table class="table mt-5 mb-5">
         <tr class="{{ @human->getGender() === 'female' ? 'female' : 'male' }}">
-            <td class="p-0">{{ @human->getAvatarImage() }}</td>
-            <td class="align-bottom" colspan="2">
-                <h3>{{ @human->getName() }}</h3>
+            <td class="border-bottom-0 p-0">{{ @human->getAvatarImage() }}</td>
+            <td class="border-bottom-0 align-bottom" colspan="2">
+                <h3><b>{{ @human->getName() }}</b></h3>
             </td>
         </tr>
         <tr>

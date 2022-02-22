@@ -23,12 +23,12 @@ footer {
 
 .female {
     background: transparent;
-    background: linear-gradient(180deg, transparent, pink 100%);
+    background: linear-gradient(270deg, transparent, pink 100%);
 }
 
 .male {
     background: transparent;
-    background: linear-gradient(180deg, transparent, lightblue 100%);
+    background: linear-gradient(270deg, transparent, lightblue 100%);
 }
 
 .property {
