@@ -51,7 +51,7 @@ final class AuthService extends Prefab
         if (!count($_record_user) || !password_verify($password_, $_record_user['password'] ?? ''))
             return NULL;
         self::$_user->setLastLoginDate($_record_user['id']);
-        self::$_f3->set('SESSION.user', $_record_user[0]['email']);
+        self::$_f3->set('SESSION.user', $_record_user['email']);
     }
 
     /**
