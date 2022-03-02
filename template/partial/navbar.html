@@ -13,7 +13,7 @@
                     <a class="nav-link {{ (@PARAMS.ctrl ?? '') === 'search' ? 'active' : '' }}" href="/search">Search</a>
                 </li>
             </ul>
-            <check if="SESSION.user ?? NULL">
+            <check if="@SESSION.user ?? NULL">
                 <true>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
