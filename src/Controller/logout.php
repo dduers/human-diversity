@@ -11,6 +11,6 @@ final class logout extends AppController
 {
     function get()
     {
-        AuthService::logout();
+        AuthService::instance()::logout();
     }
 }
