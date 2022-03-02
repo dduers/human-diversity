@@ -12,5 +12,6 @@ final class logout extends AppController
     function get()
     {
         AuthService::instance()::logout();
+        self::_reroute('home');
     }
 }
