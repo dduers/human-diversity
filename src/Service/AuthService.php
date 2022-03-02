@@ -41,17 +41,18 @@ final class AuthService extends Prefab
      * @param string $email_ user email address
      * @param string $password_ plain text password
      * @param bool (optional) $stay_loggedin_ wether to set stay logged in cookie or not
-     * @return NULL|string identifier - '' on error
+     * @return bool
      */
-    static public function login(string $email_, string $password_, bool $stay_loggedin_ = false)
+    static public function login(string $email_, string $password_, bool $stay_loggedin_ = false): bool
     {
         if (!$email_ || !$password_ || !filter_var($email_, FILTER_VALIDATE_EMAIL))
-            return NULL;
+            return false;
         $_record_user = self::$_user->getActivatedUserByEmailAddress($email_);
         if (!count($_record_user) || !password_verify($password_, $_record_user['password'] ?? ''))
-            return NULL;
+            return false;
         self::$_user->setLastLoginDate($_record_user['id']);
         self::$_f3->set('SESSION.user', $_record_user['email']);
+        return true;
     }
 
     /**

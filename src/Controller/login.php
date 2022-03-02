@@ -29,8 +29,7 @@ final class login extends AppController
             return;
         }
 
-        $_token = $_auth_service::login(self::vars('POST.email'), self::vars('POST.password'), (bool)(self::vars('POST.stayloggedin') ?? false));
-        if (!$_token) {
+        if (!$_auth_service::login(self::vars('POST.email'), self::vars('POST.password'), (bool)(self::vars('POST.stayloggedin') ?? false))) {
             self::_message('danger', self::vars('DICT.message.login.fail.general'));
             return;
         }
