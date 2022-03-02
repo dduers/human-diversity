@@ -12,43 +12,33 @@
                 <li class="nav-item">
                     <a class="nav-link {{ (@PARAMS.ctrl ?? '') === 'search' ? 'active' : '' }}" href="/search">Search</a>
                 </li>
-
-                <!--
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Dropdown link
-            </a>
-                    <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDropdownMenuLink">
-                        <li><a class="dropdown-item" href="#">Action</a></li>
-                        <li><a class="dropdown-item" href="#">Another action</a></li>
-                        <li>
-                            <hr class="dropdown-divider" />
+            </ul>
+            <check if="SESSION.user ?? NULL">
+                <true>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  {{ @SESSION.user }}
+                </a>
+                        <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDropdownMenuLink">
+                            <li><a class="dropdown-item" href="/profile">Profile</a></li>
+                            <li>
+                                <hr class="dropdown-divider" />
+                            </li>
+                            <li><a class="dropdown-item" href="/logout">Logout</a></li>
+                        </ul>
+                    </li>
+                </true>
+                <false>
+                    <ul class="navbar-nav">
+                        <li class="nav-item ">
+                            <a class="nav-link {{ (@PARAMS.ctrl ?? '') === 'register' ? 'active' : '' }}" href="/register">Register</a>
                         </li>
-                        <li><a class="dropdown-item" href="#">Something else here</a></li>
+                        <li class="nav-item ">
+                            <a class="nav-link {{ (@PARAMS.ctrl ?? '') === 'login' ? 'active' : '' }}" href="/login">Login</a>
+                        </li>
                     </ul>
-                </li>
-                -->
-            </ul>
-
-            <ul class="navbar-nav">
-                <li class="nav-item ">
-                    <a class="nav-link {{ (@PARAMS.ctrl ?? '') === 'register' ? 'active' : '' }}" href="/register">Register</a>
-                </li>
-                <li class="nav-item ">
-                    <a class="nav-link {{ (@PARAMS.ctrl ?? '') === 'login' ? 'active' : '' }}" href="/login">Login</a>
-                </li>
-                <!-- 
-                <li class="nav-item language active">
-                    <a class="nav-link" href="de/home">de</a>
-                </li>
-                <li class="nav-item language ">
-                    <a class="nav-link" href="fr/home">fr</a>
-                </li>
-                <li class="nav-item language ">
-                    <a class="nav-link" href="it/home">it</a>
-                </li>
-                -->
-            </ul>
+                </false>
+            </check>
         </div>
     </div>
 </nav>
