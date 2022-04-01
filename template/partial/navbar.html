@@ -20,7 +20,7 @@
                   {{ @SESSION.user }}
                 </a>
                         <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDropdownMenuLink">
-                            <li><a class="dropdown-item" href="/profile">Profile</a></li>
+                            <li><a class="dropdown-item {{ (@PARAMS.ctrl ?? '') === 'profile' ? 'active' : '' }}" href="/profile">Profile</a></li>
                             <li>
                                 <hr class="dropdown-divider" />
                             </li>
