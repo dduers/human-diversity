@@ -2,7 +2,7 @@
 
 # variables
 #dir_target=$PWD
-docker_mariadb_container_name=humandiversity-web-mariadb-1
+docker_mariadb_container_name=human-diversity-web-mariadb-1
 docker_mariadb_container_id=$(docker ps -aqf "name=^${docker_mariadb_container_name}$")
 ssh_user=danield4@xsite.ch
 database_name=danield4_humdiv

@@ -1,24 +1,27 @@
 services:
   php:
-    build:
-      context: .
-      dockerfile: Dockerfile
+    build: .
     ports:
       - "80:80"
     volumes:
       - .:/var/www/html
+    environment:
+      - TZ=Europe/Zurich
+      - "PS1=$$(whoami):$$(pwd) $$ "
+    restart: no
 
   mariadb:
-    image: mariadb:10.3
-    restart: always
+    image: mariadb:10.6
     ports:
       - "3306:3306"
     environment:
-      MARIADB_ALLOW_EMPTY_ROOT_PASSWORD: yes
+      - TZ=Europe/Zurich
+      - MARIADB_ALLOW_EMPTY_ROOT_PASSWORD=yes
+      - "PS1=$$(whoami):$$(pwd) $$ "
+    restart: no
 
   phpmyadmin:
     image: phpmyadmin:5.2.1
-    restart: always
     ports:
       - 8080:80
     environment:
@@ -27,3 +30,6 @@ services:
       - PMA_USER=root
       - UPLOAD_LIMIT=512M
       - MAX_EXECUTION_TIME=6000
+      - TZ=Europe/Zurich
+      - "PS1=$$(whoami):$$(pwd) $$ "
+    restart: no
