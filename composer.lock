@@ -4,24 +4,24 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "785bb14d5c4aa13b6211017279764412",
+    "content-hash": "8bf6a5d052b9bd52aeb0c9949415ad8c",
     "packages": [
         {
             "name": "bcosca/fatfree-core",
-            "version": "3.8.0",
+            "version": "3.9.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/bcosca/fatfree-core.git",
-                "reference": "cdd878db018280369b643fce62f70e55044f9ac4"
+                "url": "https://github.com/f3-factory/fatfree-core.git",
+                "reference": "227b3b03315ab86b1601d9e9fd8e07efbedf6ab9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bcosca/fatfree-core/zipball/cdd878db018280369b643fce62f70e55044f9ac4",
-                "reference": "cdd878db018280369b643fce62f70e55044f9ac4",
+                "url": "https://api.github.com/repos/f3-factory/fatfree-core/zipball/227b3b03315ab86b1601d9e9fd8e07efbedf6ab9",
+                "reference": "227b3b03315ab86b1601d9e9fd8e07efbedf6ab9",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.4"
+                "php": ">=7.2"
             },
             "type": "library",
             "autoload": {
@@ -36,28 +36,38 @@
             "description": "A powerful yet easy-to-use PHP micro-framework designed to help you build dynamic and robust Web applications - fast!",
             "homepage": "http://fatfreeframework.com/",
             "support": {
-                "issues": "https://github.com/bcosca/fatfree-core/issues",
-                "source": "https://github.com/bcosca/fatfree-core/tree/3.8.0"
+                "issues": "https://github.com/f3-factory/fatfree-core/issues",
+                "source": "https://github.com/f3-factory/fatfree-core/tree/3.9.0"
             },
-            "time": "2022-02-15T16:59:01+00:00"
+            "funding": [
+                {
+                    "url": "https://www.buymeacoffee.com/ikkez",
+                    "type": "buy_me_a_coffee"
+                },
+                {
+                    "url": "https://github.com/ikkez",
+                    "type": "github"
+                }
+            ],
+            "time": "2024-12-31T17:11:04+00:00"
         },
         {
             "name": "dduers/f3-app",
-            "version": "dev-master",
+            "version": "dev-main",
             "source": {
                 "type": "git",
                 "url": "https://github.com/dduers/f3-app.git",
-                "reference": "ff099fc21f185a5a49f7e3c5c011d7b46c568442"
+                "reference": "1df445f7102534e9defeb5ead1e3485c506f7f94"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dduers/f3-app/zipball/ff099fc21f185a5a49f7e3c5c011d7b46c568442",
-                "reference": "ff099fc21f185a5a49f7e3c5c011d7b46c568442",
+                "url": "https://api.github.com/repos/dduers/f3-app/zipball/1df445f7102534e9defeb5ead1e3485c506f7f94",
+                "reference": "1df445f7102534e9defeb5ead1e3485c506f7f94",
                 "shasum": ""
             },
             "require": {
-                "bcosca/fatfree-core": "3.8",
-                "php": ">=7.4"
+                "bcosca/fatfree-core": "^3.9",
+                "php": ">=8.3"
             },
             "default-branch": true,
             "type": "library",
@@ -73,7 +83,7 @@
             "authors": [
                 {
                     "name": "Daniel Duersteler",
-                    "email": "daniel.duersteler@gmail.com",
+                    "email": "daniel.duersteler@xsite.ch",
                     "homepage": "https://www.xsite.ch",
                     "role": "Developer"
                 }
@@ -81,9 +91,9 @@
             "description": "Secure boilerplate for a fat-free framework (f3) web app",
             "support": {
                 "issues": "https://github.com/dduers/f3-app/issues",
-                "source": "https://github.com/dduers/f3-app/tree/master"
+                "source": "https://github.com/dduers/f3-app/tree/main"
             },
-            "time": "2022-02-20T02:38:25+00:00"
+            "time": "2025-04-30T17:13:21+00:00"
         }
     ],
     "packages-dev": [],
@@ -95,8 +105,8 @@
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
-        "php": ">=7.4"
+        "php": ">=8.3"
     },
-    "platform-dev": [],
-    "plugin-api-version": "2.2.0"
+    "platform-dev": {},
+    "plugin-api-version": "2.6.0"
 }

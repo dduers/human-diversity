@@ -4,7 +4,7 @@
     "description": "Search for humans with different skills, looks and abilities",
     "type": "project",
     "require": {
-        "php": ">=7.4",
+        "php": ">=8.3",
         "dduers/f3-app": "@dev"
     },
     "license": "MIT",

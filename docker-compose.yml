@@ -1,0 +1,29 @@
+services:
+  php:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "80:80"
+    volumes:
+      - .:/var/www/html
+
+  mariadb:
+    image: mariadb:10.3
+    restart: always
+    ports:
+      - "3306:3306"
+    environment:
+      MARIADB_ALLOW_EMPTY_ROOT_PASSWORD: yes
+
+  phpmyadmin:
+    image: phpmyadmin:5.2.1
+    restart: always
+    ports:
+      - 8080:80
+    environment:
+      - PMA_ARBITRARY=1
+      - PMA_HOST=mariadb
+      - PMA_USER=root
+      - UPLOAD_LIMIT=512M
+      - MAX_EXECUTION_TIME=6000

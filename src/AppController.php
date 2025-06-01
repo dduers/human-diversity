@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Dduers\HumanDiversity;
 
 use Base;
-use Dduers\F3App\F3App;
+use WildtierSchweiz\F3App\F3App;
 
 class AppController extends F3App
 {
